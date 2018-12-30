@@ -8,6 +8,15 @@ module.exports = {
     filename: 'app.bundle.js',
   },
 
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: ['babel-loader'],
+      },
+    ],
+  },
+
   plugins: [
     new CopyWebpackPlugin([
       {
