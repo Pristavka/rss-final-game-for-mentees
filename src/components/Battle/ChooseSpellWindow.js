@@ -1,13 +1,21 @@
 import React from 'react';
 
-const ChooseSpell = ({ healPlayer, hitMonster, hitPlayer }) => (
+const ChooseSpell = ({
+  toggleSolvingTask,
+  setSpell,
+  hitMonster,
+  healPlayer,
+}) => (
   <div>
     <p>ChooseSpell</p>
     <button
       type="submit"
       onClick={() => {
-        healPlayer();
-        setTimeout(hitPlayer, 3000);
+        setSpell(() => {
+          healPlayer();
+          toggleSolvingTask();
+        });
+        toggleSolvingTask();
       }}
     >
       Heal
@@ -15,8 +23,11 @@ const ChooseSpell = ({ healPlayer, hitMonster, hitPlayer }) => (
     <button
       type="submit"
       onClick={() => {
-        hitMonster();
-        setTimeout(hitPlayer, 3000);
+        setSpell(() => {
+          hitMonster();
+          toggleSolvingTask();
+        });
+        toggleSolvingTask();
       }}
     >
       Attack

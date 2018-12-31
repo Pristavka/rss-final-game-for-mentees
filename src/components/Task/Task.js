@@ -1,25 +1,24 @@
 import React from 'react';
 
-const Task = ({ healPlayer, hitMonster, hitPlayer }) => (
+const Task = ({ choosenSpell, hitPlayer }) => (
   <div>
     <p>Task</p>
     <button
       type="submit"
       onClick={() => {
-        healPlayer();
-        setTimeout(hitPlayer, 3000);
+        choosenSpell();
+        setTimeout(hitPlayer, 1000);
       }}
     >
-      Heal
+      Correct
     </button>
     <button
       type="submit"
       onClick={() => {
-        hitMonster();
-        setTimeout(hitPlayer, 3000);
+        setTimeout(hitPlayer, 1000);
       }}
     >
-      Attack
+      Wrong
     </button>
   </div>
 );
