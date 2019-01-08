@@ -6,18 +6,22 @@ import Rating from './Rating';
 
 const MainView = (props) => {
   const { gameState, changeGameState } = props;
+  const battleComponent = <Battle showRating={() => changeGameState('rating')} />;
+  const ratingComponent = <Rating backToOptions={() => changeGameState('main')} />;
+  const optionsComponent = (
+    <Options
+      startBattle={() => changeGameState('battle')}
+      showRating={() => changeGameState('rating')}
+    />
+  );
+
   switch (gameState) {
     case 'battle':
-      return <Battle showRating={() => changeGameState('rating')} />;
+      return battleComponent;
     case 'rating':
-      return <Rating backToOptions={() => changeGameState('options')} />;
+      return ratingComponent;
     default:
-      return (
-        <Options
-          startBattle={() => changeGameState('battle')}
-          showRating={() => changeGameState('rating')}
-        />
-      );
+      return optionsComponent;
   }
 };
 
