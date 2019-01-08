@@ -4,6 +4,7 @@ import Player from './Player';
 import Monster from './Monster';
 import ChooseSpellWindow from './ChooseSpellWindow';
 import Task from '../Task/Task';
+import tasksData from '../../data/tasks';
 
 class Battle extends Component {
   state = {
@@ -18,6 +19,10 @@ class Battle extends Component {
     solvingTask: false,
     tasks: [],
   };
+
+  componentDidMount() {
+    console.log(tasksData);
+  }
 
   // togglePlayerTurn = () => {
   //   this.setState(({ playerTurn }) => ({
