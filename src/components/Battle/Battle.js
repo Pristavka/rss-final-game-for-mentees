@@ -20,16 +20,6 @@ class Battle extends Component {
     tasks: [],
   };
 
-  componentDidMount() {
-    console.log(tasksData);
-  }
-
-  // togglePlayerTurn = () => {
-  //   this.setState(({ playerTurn }) => ({
-  //     playerTurn: !playerTurn,
-  //   }));
-  // }
-
   toggleSolvingTask = () => {
     this.setState(({ solvingTask }) => ({
       solvingTask: !solvingTask,
@@ -59,7 +49,6 @@ class Battle extends Component {
         },
       };
     });
-    // this.toggleChoosingSpell();
   }
 
   hitMonster = () => {
@@ -72,7 +61,6 @@ class Battle extends Component {
         },
       };
     });
-    // this.toggleChoosingSpell();
   }
 
   hitPlayer = () => {
@@ -85,7 +73,6 @@ class Battle extends Component {
         },
       };
     });
-    this.toggleChoosingSpell();
   }
 
   render() {
@@ -112,6 +99,8 @@ class Battle extends Component {
       task={tasks}
       choosenSpell={choosenSpell}
       hitPlayer={this.hitPlayer}
+      toggleSolvingTask={this.toggleSolvingTask}
+      toggleChoosingSpell={this.toggleChoosingSpell}
     />
     );
     solveTaskWindow = solvingTask ? solveTaskWindow : null;

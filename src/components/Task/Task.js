@@ -1,13 +1,22 @@
 import React from 'react';
 
-const Task = ({ choosenSpell, hitPlayer }) => (
+const Task = ({
+  choosenSpell,
+  hitPlayer,
+  toggleSolvingTask,
+  toggleChoosingSpell,
+}) => (
   <div className="task">
     <p>Task</p>
     <button
       type="submit"
       onClick={() => {
+        toggleSolvingTask();
         choosenSpell();
-        setTimeout(hitPlayer, 1000);
+        setTimeout(() => {
+          hitPlayer();
+          toggleChoosingSpell();
+        }, 1000);
       }}
     >
       Correct
@@ -15,7 +24,11 @@ const Task = ({ choosenSpell, hitPlayer }) => (
     <button
       type="submit"
       onClick={() => {
-        setTimeout(hitPlayer, 1000);
+        toggleSolvingTask();
+        setTimeout(() => {
+          hitPlayer();
+          toggleChoosingSpell();
+        }, 1000);
       }}
     >
       Wrong

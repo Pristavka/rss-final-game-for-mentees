@@ -13,7 +13,6 @@ const ChooseSpell = ({
       onClick={() => {
         setSpell(() => {
           healPlayer();
-          toggleSolvingTask();
         });
         toggleSolvingTask();
       }}
@@ -25,7 +24,6 @@ const ChooseSpell = ({
       onClick={() => {
         setSpell(() => {
           hitMonster();
-          toggleSolvingTask();
         });
         toggleSolvingTask();
       }}
