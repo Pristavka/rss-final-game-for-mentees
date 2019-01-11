@@ -1,6 +1,28 @@
 import React from 'react';
 
+const renderAnswers = answers => (
+  <div>
+    {answers.map(answer => (
+      <button
+        key={answer.option}
+        type="submit"
+        onClick={() => console.log('hello')}
+      >
+        {answer.option}
+      </button>
+    ))}
+  </div>
+);
+
+const renderTask = task => (
+  <div>
+    <p>{task.q}</p>
+    {renderAnswers(task.a)}
+  </div>
+);
+
 const Task = ({
+  tasks,
   choosenSpell,
   hitPlayer,
   toggleSolvingTask,
@@ -8,6 +30,7 @@ const Task = ({
 }) => (
   <div className="task">
     <p>Task</p>
+    {renderTask(tasks[0])}
     <button
       type="submit"
       onClick={() => {
