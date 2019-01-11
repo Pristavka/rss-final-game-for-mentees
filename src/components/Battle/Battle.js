@@ -96,7 +96,7 @@ class Battle extends Component {
     chooseSpellWindow = choosingSpell ? chooseSpellWindow : null;
 
     let solveTaskWindow = (<Task
-      task={tasks}
+      tasks={tasksData.tasks}
       choosenSpell={choosenSpell}
       hitPlayer={this.hitPlayer}
       toggleSolvingTask={this.toggleSolvingTask}

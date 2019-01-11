@@ -3,6 +3,7 @@ import React from 'react';
 import Options from './Options';
 import Battle from './Battle/Battle';
 import Rating from './Rating';
+import CanvasComponent from './Battle/CanvasComponent';
 
 const MainView = (props) => {
   const { gameState, changeGameState } = props;
@@ -17,7 +18,7 @@ const MainView = (props) => {
 
   switch (gameState) {
     case 'battle':
-      return battleComponent;
+      return <CanvasComponent />;
     case 'rating':
       return ratingComponent;
     default:
