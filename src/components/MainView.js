@@ -18,7 +18,7 @@ const MainView = (props) => {
 
   switch (gameState) {
     case 'battle':
-      return <CanvasComponent />;
+      return battleComponent;
     case 'rating':
       return ratingComponent;
     default:
