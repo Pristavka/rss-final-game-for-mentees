@@ -1,12 +1,40 @@
 import React from 'react';
 
-const renderAnswers = answers => (
+const correctAnswerHandler = ({
+  choosenSpell,
+  hitPlayer,
+  toggleSolvingTask,
+  toggleChoosingSpell,
+}) => {
+  toggleSolvingTask();
+  choosenSpell();
+  setTimeout(() => {
+    hitPlayer();
+    toggleChoosingSpell();
+  }, 1000);
+};
+
+const wrongAnswerHandler = ({
+  hitPlayer,
+  toggleSolvingTask,
+  toggleChoosingSpell,
+}) => {
+  toggleSolvingTask();
+  setTimeout(() => {
+    hitPlayer();
+    toggleChoosingSpell();
+  }, 1000);
+};
+
+const renderAnswers = (answers, rest) => (
   <div>
     {answers.map(answer => (
       <button
         key={answer.option}
         type="submit"
-        onClick={() => console.log('hello')}
+        onClick={() => {
+          (answer.correct ? correctAnswerHandler : wrongAnswerHandler)(rest);
+        }}
       >
         {answer.option}
       </button>
@@ -14,48 +42,17 @@ const renderAnswers = answers => (
   </div>
 );
 
-const renderTask = task => (
+const renderTask = (task, rest) => (
   <div>
     <p>{task.q}</p>
-    {renderAnswers(task.a)}
+    {renderAnswers(task.a, rest)}
   </div>
 );
 
-const Task = ({
-  tasks,
-  choosenSpell,
-  hitPlayer,
-  toggleSolvingTask,
-  toggleChoosingSpell,
-}) => (
+const Task = ({ tasks, ...rest }) => (
   <div className="task">
     <p>Task</p>
-    {renderTask(tasks[0])}
-    <button
-      type="submit"
-      onClick={() => {
-        toggleSolvingTask();
-        choosenSpell();
-        setTimeout(() => {
-          hitPlayer();
-          toggleChoosingSpell();
-        }, 1000);
-      }}
-    >
-      Correct
-    </button>
-    <button
-      type="submit"
-      onClick={() => {
-        toggleSolvingTask();
-        setTimeout(() => {
-          hitPlayer();
-          toggleChoosingSpell();
-        }, 1000);
-      }}
-    >
-      Wrong
-    </button>
+    {renderTask(tasks[0], rest)}
     <style jsx>
       {`.task {
         width: 300px;

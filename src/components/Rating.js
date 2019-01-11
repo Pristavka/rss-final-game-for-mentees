@@ -8,7 +8,8 @@ class Rating extends Component {
   componentDidMount() {
     fetch('https://rs-game.herokuapp.com/results')
       .then(res => res.json())
-      .then(data => this.setState({ users: data }));
+      .then(data => this.setState({ users: data }))
+      .catch(console.log);
   }
 
   render() {
