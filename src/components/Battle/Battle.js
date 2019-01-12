@@ -124,6 +124,17 @@ class Battle extends Component {
             color: black;
             background-color: white;
           }
+          canvas {
+            display: block;
+            padding: 0;
+            margin-top: -20px;
+            margin-left: -10px;
+            margin: 0 auto;
+            background-image: url('../images/background/bg2.jpg') ;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
           `}
         </style>
       </div>
