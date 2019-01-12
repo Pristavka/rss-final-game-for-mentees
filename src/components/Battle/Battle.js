@@ -4,6 +4,7 @@ import Player from './Player';
 import Monster from './Monster';
 import ChooseSpellWindow from './ChooseSpellWindow';
 import tasksData from '../../data/tasks';
+import CanvasDrawer from './CanvasDrawer';
 
 class Battle extends Component {
   state = {
@@ -16,6 +17,10 @@ class Battle extends Component {
     choosingSpell: true,
     tasks: [],
   };
+
+  componentDidMount() {
+    this.drawer = new CanvasDrawer(this.refs.canvas);
+  }
 
   toggleChoosingSpell = () => {
     this.setState(({ choosingSpell }) => ({
@@ -36,6 +41,7 @@ class Battle extends Component {
   }
 
   hitMonster = () => {
+    this.drawer.ironPunch();
     this.setState(({ monster }) => {
       let newHealth = monster.health - 10;
       newHealth = newHealth < 0 ? 0 : newHealth;
@@ -83,6 +89,7 @@ class Battle extends Component {
         <div></div>
         <Player player={player} />
         <Monster monster={monster} />
+        <canvas ref="canvas" width={1200} height={580} />
         {chooseSpellWindow}
         <button type="submit" onClick={showRating}>End Game</button>
         <style jsx>
@@ -116,6 +123,17 @@ class Battle extends Component {
           button:hover {
             color: #9ad9ea;
           }
+          canvas {
+            display: block;
+            padding: 0;
+            margin-top: -20px;
+            margin-left: -10px;
+            margin: 0 auto;
+            background-image: url('../images/background/bg2.jpg') ;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
           `}
         </style>
       </div>
