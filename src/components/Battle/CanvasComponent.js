@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
+import CanvasDrawer from './CanvasDrawer';
 
 class CanvasComponent extends Component {
   componentDidMount() {
-    const ctx = this.canvas.getContext('2d');
-
-    ctx.fillRect(25, 25, 100, 100);
-  }
+    this.drawer = new CanvasDrawer(this.refs.canvas);
+    // this.drawer.ironPunch();
+}
 
   render() {
     return (
-      <canvas width="150" height="150" ref={(node) => { this.canvas = node; }} />
+      <div>
+        <canvas ref="canvas" width={1200} height={580} />
+      </div>
     );
   }
 }
