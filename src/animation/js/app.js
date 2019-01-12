@@ -9,7 +9,6 @@ let x = 0;
 let dx = 300;
 let tickCount = 0;
 
-
 sprite.src = './img/sprites/IronMan3.png';
 sprite2.src = './img/sprites/ironAttack.png';
 sprite.onload = function() {

@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
 
+// let ironMan = require("./IronMan3.png");
+
 class CanvasComponent extends Component {
   componentDidMount() {
-    const ctx = this.canvas.getContext('2d');
-
-    ctx.fillRect(25, 25, 100, 100);
-  }
+    const ctx = this.refs.canvas.getContext('2d');
+    const ironManWalk = new Image();
+    ironManWalk.src = '../images/IronMan3.png';
+    ironManWalk.onload = function() {
+      ctx.drawImage(ironManWalk,0,0);
+    }
+}
 
   render() {
     return (
-      <canvas width="150" height="150" ref={(node) => { this.canvas = node; }} />
+      <div>
+        <canvas ref="canvas" width={1200} height={580} />
+        {/* <img src={ironMan} alt="iron" /> */}
+      </div>
     );
   }
 }
