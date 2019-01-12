@@ -3,7 +3,7 @@ function CanvasDrawer(canvas) {
   const ctx = this.canvas.getContext('2d');
   const ironManWalk = new Image();
   const ironManPunch = new Image();
-  const images ={};
+  const images = {};
   let curSprite = ironManPunch;
   let lastSpritePos = 1100;
   let spriteWidth = 150;
@@ -66,17 +66,16 @@ function CanvasDrawer(canvas) {
       curSprite = ironManPunch;
       spriteWidth = 150;
       lastSpritePos = 600;
-    }
-    else dx += 20;
+    } else dx += 20;
   }
-  
+
   function attackEnd() {
     if (curSprite === ironManPunch && xCoordinate === lastSpritePos) {
       ctx.drawImage(ironManPunch, 0, 0, 100, 120, 350, 100, 120);
     }
   }
 
-  this.ironPunch = function() {
+  this.ironPunch = function () {
     if (tickCount > 4) {
       attackOn(700);
       walk();

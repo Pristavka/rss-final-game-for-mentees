@@ -20,8 +20,7 @@ class Battle extends Component {
 
   componentDidMount() {
     this.drawer = new CanvasDrawer(this.refs.canvas);
-    // this.drawer.ironPunch();
-}
+  }
 
   toggleChoosingSpell = () => {
     this.setState(({ choosingSpell }) => ({
@@ -42,6 +41,7 @@ class Battle extends Component {
   }
 
   hitMonster = () => {
+    this.drawer.ironPunch();
     this.setState(({ monster }) => {
       let newHealth = monster.health - 10;
       newHealth = newHealth < 0 ? 0 : newHealth;
