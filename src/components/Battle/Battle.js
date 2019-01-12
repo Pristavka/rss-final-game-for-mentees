@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import Player from './Player';
 import Monster from './Monster';
 import ChooseSpellWindow from './ChooseSpellWindow';
-import Task from '../Task/Task';
 import tasksData from '../../data/tasks';
 
 class Battle extends Component {
@@ -15,28 +14,13 @@ class Battle extends Component {
       health: 100,
     },
     choosingSpell: true,
-    choosenSpell: null,
-    solvingTask: false,
     tasks: [],
   };
-
-  toggleSolvingTask = () => {
-    this.setState(({ solvingTask }) => ({
-      solvingTask: !solvingTask,
-    }));
-  }
 
   toggleChoosingSpell = () => {
     this.setState(({ choosingSpell }) => ({
       choosingSpell: !choosingSpell,
     }));
-  }
-
-  setSpell = (choosenSpell) => {
-    this.setState({
-      choosenSpell,
-    });
-    this.toggleChoosingSpell();
   }
 
   healPlayer = () => {
@@ -80,37 +64,26 @@ class Battle extends Component {
     const {
       player,
       monster,
-      tasks,
-      solvingTask,
       choosingSpell,
-      choosenSpell,
     } = this.state;
 
     let chooseSpellWindow = (<ChooseSpellWindow
-      toggleSolvingTask={this.toggleSolvingTask}
+      tasks={tasksData.tasks}
+      toggleChoosingSpell={this.toggleChoosingSpell}
       setSpell={this.setSpell}
+      hitPlayer={this.hitPlayer}
       healPlayer={this.healPlayer}
       hitMonster={this.hitMonster}
     />
     );
     chooseSpellWindow = choosingSpell ? chooseSpellWindow : null;
 
-    let solveTaskWindow = (<Task
-      tasks={tasksData.tasks}
-      choosenSpell={choosenSpell}
-      hitPlayer={this.hitPlayer}
-      toggleSolvingTask={this.toggleSolvingTask}
-      toggleChoosingSpell={this.toggleChoosingSpell}
-    />
-    );
-    solveTaskWindow = solvingTask ? solveTaskWindow : null;
     return (
       <div className="battle">
         <div>Battle</div>
         <Player player={player} />
         <Monster monster={monster} />
         {chooseSpellWindow}
-        {solveTaskWindow}
         <button type="submit" onClick={showRating}>End Game</button>
         <style jsx>
           {`button {
