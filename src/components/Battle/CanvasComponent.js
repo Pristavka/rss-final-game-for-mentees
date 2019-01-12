@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-
+import CanvasDrawer from 'CanvasDrawer';
 // let ironMan = require("./IronMan3.png");
 
 class CanvasComponent extends Component {
   componentDidMount() {
-    const ctx = this.refs.canvas.getContext('2d');
-    const ironManWalk = new Image();
-    ironManWalk.src = '../images/IronMan3.png';
-    ironManWalk.onload = function() {
-      ctx.drawImage(ironManWalk,0,0);
-    }
+    // const ctx = this.refs.canvas.getContext('2d');
+    // const ironManWalk = new Image();
+    // ironManWalk.src = '../images/sprites/IronMan3.png';
+    // ironManWalk.onload = function() {
+    //   ctx.drawImage(ironManWalk,0,0);
+    // }
+    this.drawer = new CanvasDrawer(this.refs.canvas);
 }
 
   render() {
