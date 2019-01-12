@@ -4,6 +4,7 @@ import Player from './Player';
 import Monster from './Monster';
 import ChooseSpellWindow from './ChooseSpellWindow';
 import tasksData from '../../data/tasks';
+import CanvasDrawer from './CanvasDrawer';
 
 class Battle extends Component {
   state = {
@@ -16,6 +17,11 @@ class Battle extends Component {
     choosingSpell: true,
     tasks: [],
   };
+
+  componentDidMount() {
+    this.drawer = new CanvasDrawer(this.refs.canvas);
+    // this.drawer.ironPunch();
+}
 
   toggleChoosingSpell = () => {
     this.setState(({ choosingSpell }) => ({
@@ -83,6 +89,7 @@ class Battle extends Component {
         <div>Battle</div>
         <Player player={player} />
         <Monster monster={monster} />
+        <canvas ref="canvas" width={1200} height={580} />
         {chooseSpellWindow}
         <button type="submit" onClick={showRating}>End Game</button>
         <style jsx>
