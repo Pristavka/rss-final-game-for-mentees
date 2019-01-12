@@ -7,13 +7,16 @@ const Player = ({ player }) => (
     <style jsx>
       {`.player {
         position: fixed;
-        top: 30px;
+        top: 20px;
         left: 50px;
         width: 30%;
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         letter-spacing: 1pt;
-        font-size: 20pt;
-        color: #9ad9ea;
+        font-size: 22pt;
+        color: /*#9ad9ea*/ #ff8081;
+        background:url(images/cover.jpg) no-repeat center/cover;
+        -webkit-background-clip:text;
+        -webkit-text-fill-color: transparent;
         }`}
     </style>
   </div>

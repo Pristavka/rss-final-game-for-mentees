@@ -10,7 +10,7 @@ const Options = ({ startBattle, showRating }) => (
       <button type="submit" className="rating" onClick={showRating}>Рейтинг</button>
     </nav>
   	<h1><span>Спасти</span> Тони Старка</h1>
-  	<button className="button-header">Спасти</button>
+  	<button type="submit" onClick={startBattle} className="button-header">Спасти</button>
   </header>
   <section id="about">
   	<p><a href="https://42.tut.by/618552?crnd=6467">смотреть трейлер</a></p>
@@ -37,7 +37,7 @@ const Options = ({ startBattle, showRating }) => (
     .options {
       background: url(images/right_bg.jpg) no-repeat;
       background-size: cover;
-      margin: -8px -8px -8px -8px;
+      margin: -8px;
       }
 
       header nav {
@@ -115,7 +115,7 @@ float: right;
       }
       .button-header {
         border-width: 3px;
-        margin: /*23% 41% 3%*/220px 41% 40px;
+        margin: 220px 41% 40px;
         font-size: 32pt;
       }
 

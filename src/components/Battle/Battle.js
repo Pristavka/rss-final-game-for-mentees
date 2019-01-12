@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import Player from './Player';
 import Monster from './Monster';
 import ChooseSpellWindow from './ChooseSpellWindow';
-import Task from '../Task/Task';
 import tasksData from '../../data/tasks';
 
 class Battle extends Component {
@@ -15,28 +14,13 @@ class Battle extends Component {
       health: 100,
     },
     choosingSpell: true,
-    choosenSpell: null,
-    solvingTask: false,
     tasks: [],
   };
-
-  toggleSolvingTask = () => {
-    this.setState(({ solvingTask }) => ({
-      solvingTask: !solvingTask,
-    }));
-  }
 
   toggleChoosingSpell = () => {
     this.setState(({ choosingSpell }) => ({
       choosingSpell: !choosingSpell,
     }));
-  }
-
-  setSpell = (choosenSpell) => {
-    this.setState({
-      choosenSpell,
-    });
-    this.toggleChoosingSpell();
   }
 
   healPlayer = () => {
@@ -80,37 +64,26 @@ class Battle extends Component {
     const {
       player,
       monster,
-      tasks,
-      solvingTask,
       choosingSpell,
-      choosenSpell,
     } = this.state;
 
     let chooseSpellWindow = (<ChooseSpellWindow
-      toggleSolvingTask={this.toggleSolvingTask}
+      tasks={tasksData.tasks}
+      toggleChoosingSpell={this.toggleChoosingSpell}
       setSpell={this.setSpell}
+      hitPlayer={this.hitPlayer}
       healPlayer={this.healPlayer}
       hitMonster={this.hitMonster}
     />
     );
     chooseSpellWindow = choosingSpell ? chooseSpellWindow : null;
 
-    let solveTaskWindow = (<Task
-      tasks={tasksData.tasks}
-      choosenSpell={choosenSpell}
-      hitPlayer={this.hitPlayer}
-      toggleSolvingTask={this.toggleSolvingTask}
-      toggleChoosingSpell={this.toggleChoosingSpell}
-    />
-    );
-    solveTaskWindow = solvingTask ? solveTaskWindow : null;
     return (
       <div className="battle">
-        <div>Battle</div>
+        <div></div>
         <Player player={player} />
         <Monster monster={monster} />
         {chooseSpellWindow}
-        {solveTaskWindow}
         <button type="submit" onClick={showRating}>End Game</button>
         <style jsx>
           {`button {
@@ -119,7 +92,6 @@ class Battle extends Component {
             font: inherit;
             color: inherit;
             background-color: transparent;
-            cursor: pointer;
           }
           button {
             position: fixed;
@@ -131,18 +103,18 @@ class Battle extends Component {
             border: solid 2px #fff;
             border-radius: 4px;
             padding: 0.5em 1em;
-            color: #fff;
-            background-color: transparent;
+            color: #ff8081;
+            background: url(images/cover.jpg) no-repeat;
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             letter-spacing: 1pt;
             font-size: 18pt;
+            cursor: pointer;
          }
           button:active {
             transform: translateY(2px);
          }
           button:hover {
-            color: black;
-            background-color: white;
+            color: #9ad9ea;
           }
           `}
         </style>

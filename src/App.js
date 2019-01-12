@@ -21,6 +21,7 @@ class App extends Component {
         gameState={gameState}
         changeGameState={this.changeGameState}
       />
+
     );
   }
 }
