@@ -10,7 +10,7 @@ loadEnemy('head');
 loadEnemy('leftArm');
 loadEnemy('leftLeg');
 loadEnemy('rightLeg');
-loadEnemy('torso')
+loadEnemy('torso');
 loadEnemy('rightArm');
 loadEnemy('waist');
 

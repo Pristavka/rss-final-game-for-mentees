@@ -18,14 +18,14 @@ sprite.onload = function() {
 };
 
 function start() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawEnemy(700,385);
-    ctx.drawImage(sprite2, 600, 0, spriteWidth, 120, 300, 350, spriteWidth, 120);
-    curSprite = sprite;
-    spriteWidth = 100;
-    lastSpritePos = 1100;
-    x = 0;
-    dx = 300;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawEnemy(700,385);
+  ctx.drawImage(sprite2, 600, 0, spriteWidth, 120, 300, 350, spriteWidth, 120);
+  curSprite = sprite;
+  spriteWidth = 100;
+  lastSpritePos = 1100;
+  x = 0;
+  dx = 300;
 }
 
 function drawPerson() {
