@@ -133,6 +133,7 @@ class Battle extends Component {
           .battle {
             margin: -8px;
             height: 648px;
+            padding-top: 30px;
             background-image: linear-gradient(#665B7D, #665B7D, #A78FA9, #250D1A, #000000, #000000, #000000, #000000, #000000);
           }
           button {
@@ -144,7 +145,7 @@ class Battle extends Component {
           }
           button {
             position: fixed;
-            bottom: 13%;
+            bottom: 12%;
             left: 105px;
             display: inline-block;
             text-align: center;
