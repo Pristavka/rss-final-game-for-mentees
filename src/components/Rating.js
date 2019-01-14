@@ -69,11 +69,11 @@ class Rating extends Component {
             margin: 0px auto;
             width: 50%;
             height: 40px;
-            border: 2px solid rgb(186,147,168);
+            border: 2px solid #ba90a6;
             border-radius: 4px;
           }
           #test{
-            background: rgb(186,147,168);
+            background: #ba90a6;
             border-radius: 4px;
             width: 0%;
             height: 40px;

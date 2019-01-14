@@ -14,6 +14,9 @@ const Options = ({ startBattle, showRating }) => (
   </header>
   <section id="about">
   	<p><a href="https://42.tut.by/618552?crnd=6467">смотреть трейлер</a></p>
+    <div>
+      <p>Мы посмотрели трейлер «Мстителей» и не смогли остаться в стороне от судьбы главного героя. Поэтому мы хотим попытаться спасти <span>Тони Старка.</span> Ты тоже можешь это сделать, начни игру прямо сейчас!</p>
+    </div>
   </section>
   <section className="choose-name">
   	<p>Твоё имя, герой</p>
@@ -26,9 +29,9 @@ const Options = ({ startBattle, showRating }) => (
   <footer>
     <nav>
       <p>created by</p>
-      <a href=""><img src="images/git.png" alt="logo"/></a>
-      <a href=""><img src="images/git.png" alt="logo"/></a>
-      <a href=""><img src="images/git.png" alt="logo"/></a>
+      <a href="https://github.com/dzhudzhi" target="blank"><img src="images/git.png" alt="logo"/></a>
+      <a href="https://github.com/jamadamur" target="blank"><img src="images/git.png" alt="logo"/></a>
+      <a href="https://github.com/NataliaSirotko" target="blank"><img src="images/git.png" alt="logo"/></a>
   	</nav>
   </footer>
     <style jsx>
@@ -62,7 +65,7 @@ const Options = ({ startBattle, showRating }) => (
         letter-spacing: 2pt;
       }
       nav .rating {
-float: right;
+      float: right;
       }
       header nav a:active, header nav button:active {
         transform: translateY(2px);
@@ -121,6 +124,22 @@ float: right;
       #about p {
         text-align: center;
       }
+      #about div {
+        width: 500px;
+        margin: 80px auto 0px;
+        color: #fff;
+        font-family: 'Impact', 'Arial Narrow Bold', sans-serif;
+        letter-spacing: 2pt;
+        font-size: 16pt;
+        font-style: italic;
+      }
+      #about div p {
+        line-height: 26pt;
+      }
+      #about span {
+        color: black;
+        font-size: 20pt;
+      }
       #about a {
         color: #9ad9ea;
         font-family: 'Impact', 'Arial Narrow Bold', sans-serif;
@@ -134,7 +153,7 @@ float: right;
 
       .choose-name p {
         text-align: center;
-        margin: 150px auto 70px;
+        margin: 110px auto 70px;
         color: #ff8081;
         font-family: 'Impact', 'Arial Narrow Bold', sans-serif;
         letter-spacing: 3pt;

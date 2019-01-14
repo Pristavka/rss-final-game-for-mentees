@@ -56,6 +56,7 @@ class ChooseSpell extends Component {
             border-radius: 50%;
             background-size: cover;
             color: #9ad9ea ;
+            background: linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0.4));
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             letter-spacing: 1pt;
             font-size: 28pt;
