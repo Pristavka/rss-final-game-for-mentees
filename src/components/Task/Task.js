@@ -91,6 +91,10 @@ class Task extends Component {
         {this.renderTask(tasks[0], rest)}
         <style jsx>
           {`.task {
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
             width: 400px;
             height: 400px;
             margin: 150px auto 0px;
@@ -98,7 +102,6 @@ class Task extends Component {
             padding-left: 12px;
             box-sizing: border-box;
             border-radius: 50%;
-            background: url(images/cover.jpg) no-repeat;
             background-size: cover;
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             letter-spacing: 1pt;

@@ -4,7 +4,6 @@ import CanvasDrawer from './CanvasDrawer';
 class CanvasComponent extends Component {
   componentDidMount() {
     this.drawer = new CanvasDrawer(this.refs.canvas);
-    // this.drawer.ironPunch();
 }
 
   render() {
