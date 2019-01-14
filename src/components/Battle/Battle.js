@@ -3,15 +3,18 @@ import React, { Component } from 'react';
 import Player from './Player';
 import Monster from './Monster';
 import ChooseSpellWindow from './ChooseSpellWindow';
+import MonsterDefeatedWindow from './MonsterDefeatedWindow';
 import tasksData from '../../data/tasks';
 import CanvasDrawer from './CanvasDrawer';
 
 class Battle extends Component {
   state = {
     player: {
+      name: 'player',
       health: 100,
     },
     monster: {
+      name: 'monster',
       health: 100,
     },
     choosingSpell: true,
@@ -20,6 +23,16 @@ class Battle extends Component {
 
   componentDidMount() {
     this.drawer = new CanvasDrawer(this.refs.canvas);
+    const monsterName = this.nameGenerator();
+    this.setState(({ monster }) => ({ monster: { ...monster, name: monsterName } }));
+  }
+
+  nameGenerator = () => {
+    const firstName = ['ужасный', 'злобный', 'никчемный', 'мрачный'];
+    const secondName = ['убийца', 'линчеватель', 'преследователь', 'мучитель'];
+    const thirdName = ['героев', 'магов', 'воинов', 'солдат'];
+    const randomNumber = () => Math.round(-0.5 + Math.random() * 4);
+    return `${firstName[randomNumber()]} ${secondName[randomNumber()]} ${thirdName[randomNumber()]}`;
   }
 
   toggleChoosingSpell = () => {
@@ -43,19 +56,15 @@ class Battle extends Component {
   hitMonster = () => {
     this.drawer.ironPunch();
     this.setState(({ monster }) => {
-      let newHealth = monster.health - 10;
+      let newHealth = monster.health - 50;
       newHealth = newHealth < 0 ? 0 : newHealth;
-      return {
-        monster: {
-          health: newHealth,
-        },
-      };
+      return { monster: { ...monster, health: newHealth } };
     });
   }
 
   hitPlayer = () => {
     this.setState(({ player }) => {
-      let newHealth = player.health - 10;
+      let newHealth = player.health - 20;
       newHealth = newHealth < 0 ? 0 : newHealth;
       return {
         player: {
@@ -63,6 +72,18 @@ class Battle extends Component {
         },
       };
     });
+  }
+
+  createNewMonster = () => {
+    const monsterName = this.nameGenerator();
+    this.setState(
+      {
+        monster: {
+          name: monsterName,
+          health: 100,
+        },
+      },
+    );
   }
 
   render() {
@@ -73,24 +94,38 @@ class Battle extends Component {
       choosingSpell,
     } = this.state;
 
-    let chooseSpellWindow = (<ChooseSpellWindow
-      tasks={tasksData.tasks}
-      toggleChoosingSpell={this.toggleChoosingSpell}
-      setSpell={this.setSpell}
-      hitPlayer={this.hitPlayer}
-      healPlayer={this.healPlayer}
-      hitMonster={this.hitMonster}
-    />
+    let chooseSpellWindow = (
+      <ChooseSpellWindow
+        tasks={tasksData.tasks}
+        toggleChoosingSpell={this.toggleChoosingSpell}
+        setSpell={this.setSpell}
+        hitPlayer={this.hitPlayer}
+        healPlayer={this.healPlayer}
+        hitMonster={this.hitMonster}
+      />
     );
-    chooseSpellWindow = choosingSpell ? chooseSpellWindow : null;
+    const monsterDefeated = monster.health === 0;
+
+    chooseSpellWindow = (choosingSpell && !monsterDefeated) ? chooseSpellWindow : null;
+    const gameOver = player.health === 0;
+
+    let monsterDefeatedWindow = (
+      <MonsterDefeatedWindow
+        monsterName={monster.name}
+        nextMonster={this.createNewMonster}
+        endGame={showRating}
+      />
+    );
+
+    monsterDefeatedWindow = monsterDefeated ? monsterDefeatedWindow : null;
 
     return (
       <div className="battle">
-        <div></div>
         <Player player={player} />
         <Monster monster={monster} />
         <canvas ref="canvas" width={1200} height={580} />
         {chooseSpellWindow}
+        {monsterDefeatedWindow}
         <button type="submit" onClick={showRating}>End Game</button>
         <style jsx>
           {`button {
