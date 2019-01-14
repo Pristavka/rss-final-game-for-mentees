@@ -8,7 +8,7 @@ const Player = ({ player }) => (
       {`.player {
         position: fixed;
         top: 20px;
-        left: 450px;
+        left: 150px;
         width: 30%;
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         letter-spacing: 1pt;

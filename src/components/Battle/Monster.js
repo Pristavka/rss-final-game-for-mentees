@@ -3,12 +3,13 @@ import React from 'react';
 const Monster = ({ monster }) => (
   <div className="monster">
     <p>{monster.name}</p>
-    <p className="health">{monster.health}</p>
+    <p>{monster.health}</p>
     <style jsx>
       {`.monster {
+        float: right;
         position: fixed;
         top: 20px;
-        right: 300px;
+        right: 150px;
         width: 30%;
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         letter-spacing: 1pt;
@@ -16,7 +17,7 @@ const Monster = ({ monster }) => (
         color: #000000;
       }
       p {
-        text-align: center;
+        text-align: right;
       }`}
     </style>
   </div>

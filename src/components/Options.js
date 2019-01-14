@@ -15,7 +15,7 @@ const Options = ({ startBattle, showRating }) => (
   <section id="about">
   	<p><a href="https://42.tut.by/618552?crnd=6467">смотреть трейлер</a></p>
     <div>
-      <p>Мы посмотрели трейлер «Мстителей» и не смогли остаться в стороне от судьбы главного героя. Поэтому мы хотим попытаться спасти Тони Старка. Ты тоже можешь это сделать, начни игру прямо сейчас!</p>
+      <p>Мы посмотрели трейлер «Мстителей» и не смогли остаться в стороне от судьбы главного героя. Поэтому мы хотим попытаться спасти <span>Тони Старка.</span> Ты тоже можешь это сделать, начни игру прямо сейчас!</p>
     </div>
   </section>
   <section className="choose-name">
@@ -29,8 +29,8 @@ const Options = ({ startBattle, showRating }) => (
   <footer>
     <nav>
       <p>created by</p>
-      <a href="" target="blank"><img src="images/git.png" alt="logo"/></a>
-      <a href="" target="blank"><img src="images/git.png" alt="logo"/></a>
+      <a href="https://github.com/dzhudzhi" target="blank"><img src="images/git.png" alt="logo"/></a>
+      <a href="https://github.com/jamadamur" target="blank"><img src="images/git.png" alt="logo"/></a>
       <a href="https://github.com/NataliaSirotko" target="blank"><img src="images/git.png" alt="logo"/></a>
   	</nav>
   </footer>
@@ -118,7 +118,6 @@ const Options = ({ startBattle, showRating }) => (
       .button-header {
         border-width: 3px;
         margin: 220px 41% 40px;
-        width:auto;
         font-size: 32pt;
       }
 
@@ -126,9 +125,20 @@ const Options = ({ startBattle, showRating }) => (
         text-align: center;
       }
       #about div {
-        width: 400px;
-        margin: 30px auto 0px;
-
+        width: 500px;
+        margin: 80px auto 0px;
+        color: #fff;
+        font-family: 'Impact', 'Arial Narrow Bold', sans-serif;
+        letter-spacing: 2pt;
+        font-size: 16pt;
+        font-style: italic;
+      }
+      #about div p {
+        line-height: 26pt;
+      }
+      #about span {
+        color: black;
+        font-size: 20pt;
       }
       #about a {
         color: #9ad9ea;
@@ -143,7 +153,7 @@ const Options = ({ startBattle, showRating }) => (
 
       .choose-name p {
         text-align: center;
-        margin: 150px auto 70px;
+        margin: 110px auto 70px;
         color: #ff8081;
         font-family: 'Impact', 'Arial Narrow Bold', sans-serif;
         letter-spacing: 3pt;
