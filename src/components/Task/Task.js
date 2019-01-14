@@ -12,7 +12,7 @@ class Task extends Component {
           p {
             text-align: center;
             color: #9ad9ea;
-            font-size: 20pt;
+            font-size: 14pt;
           }
           `}
       </style>
@@ -80,7 +80,7 @@ class Task extends Component {
     setTimeout(() => {
       hitPlayer();
       toggleChoosingSpell();
-    }, 1000);
+    }, 2000);
   }
 
   render() {
@@ -91,12 +91,18 @@ class Task extends Component {
         {this.renderTask(tasks[0], rest)}
         <style jsx>
           {`.task {
+            position: absolute;
+            top: -80px;
+            left: 480px;
             width: 400px;
             height: 400px;
             margin: 150px auto 0px;
             padding-top: 30px;
             padding-left: 12px;
             box-sizing: border-box;
+            -webkit-box-shadow: 5px 5px 10px 0px rgba(186,147,168,1);
+            -moz-box-shadow: 5px 5px 10px 0px rgba(186,147,168,1);
+            box-shadow: 5px 5px 10px 0px rgba(186,147,168,1), -5px -5px 10px 0px rgba(186,147,168,1);
             border-radius: 50%;
             background: url(images/cover.jpg) no-repeat;
             background-size: cover;
@@ -107,7 +113,7 @@ class Task extends Component {
             }
             p {
               text-align: center;
-              color: #ff8081;
+              color: #9ad9ea;
             }
           `}
         </style>

@@ -39,7 +39,6 @@ const Options = ({ startBattle, showRating }) => (
       background-size: cover;
       margin: -8px;
       }
-
       header nav {
         float: right;
         width: 465px;

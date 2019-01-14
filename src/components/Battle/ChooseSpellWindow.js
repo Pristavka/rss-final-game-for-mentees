@@ -42,16 +42,20 @@ class ChooseSpell extends Component {
         </button>
         <style jsx>
           {`.choosespell {
+            position: absolute;
+            top: 70px;
+            left: 480px;
             width: 400px;
             height: 400px;
-            margin: 150px auto 0px;
             padding-top: 40px;
-            /*padding-left: 30px;*/
             box-sizing: border-box;
+            -webkit-box-shadow: 5px 5px 10px 0px rgba(186,147,168,1);
+            -moz-box-shadow: 5px 5px 10px 0px rgba(186,147,168,1);
+            box-shadow: 5px 5px 10px 0px rgba(186,147,168,1), -5px -5px 10px 0px rgba(186,147,168,1);
             border-radius: 50%;
-            background: url(images/cover.jpg) no-repeat;
+            background: /*linear-gradient(to top, rgba(150,0,100,0.3), rgba(150,0,100,0.3)),*/ url(images/cover.jpg) no-repeat;
             background-size: cover;
-            color: #9ad9ea;
+            color: #9ad9ea ;
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             letter-spacing: 1pt;
             font-size: 28pt;

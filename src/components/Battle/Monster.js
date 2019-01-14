@@ -14,9 +14,9 @@ const Monster = ({ monster }) => (
         letter-spacing: 1pt;
         font-size: 22pt;
         color: /*#9ad9ea*/ #ff8081;
-        background:url(images/cover.jpg) no-repeat center/cover;
+        /*background:url(images/cover.jpg) no-repeat center/cover;
         -webkit-background-clip:text;
-        -webkit-text-fill-color: transparent;
+        -webkit-text-fill-color: transparent;*/
       }
       p {
         text-align: right;

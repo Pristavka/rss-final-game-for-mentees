@@ -13,10 +13,10 @@ const Player = ({ player }) => (
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         letter-spacing: 1pt;
         font-size: 22pt;
-        color: /*#9ad9ea*/ #ff8081;
-        background:url(images/cover.jpg) no-repeat center/cover;
+        color: #ff8081;
+        /*background:url(images/cover.jpg) no-repeat center/cover;
         -webkit-background-clip:text;
-        -webkit-text-fill-color: transparent;
+        -webkit-text-fill-color: transparent;*/
         }`}
     </style>
   </div>

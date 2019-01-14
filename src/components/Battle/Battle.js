@@ -110,7 +110,7 @@ class Battle extends Component {
             border: solid 2px #fff;
             border-radius: 4px;
             padding: 0.5em 1em;
-            color: #ff8081;
+            color: rgb(186,147,168);
             background: url(images/cover.jpg) no-repeat;
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             letter-spacing: 1pt;
