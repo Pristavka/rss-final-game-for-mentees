@@ -2,7 +2,7 @@ import React from 'react';
 
 const Monster = ({ monster }) => (
   <div className="monster">
-    <p>Monster nbnbnggb nnngggnbn</p>
+    <p>{monster.name}</p>
     <p className="health">{monster.health}</p>
     <style jsx>
       {`.monster {

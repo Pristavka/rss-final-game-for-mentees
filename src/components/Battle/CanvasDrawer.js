@@ -3,6 +3,7 @@ function CanvasDrawer(canvas) {
   const ctx = this.canvas.getContext('2d');
   const ironManWalk = new Image();
   const ironManPunch = new Image();
+  const ironHeal = new Image();
   const images = {};
   let curSprite = ironManPunch;
   let lastSpritePos = 1100;
@@ -12,6 +13,7 @@ function CanvasDrawer(canvas) {
   let tickCount = 0;
   ironManWalk.src = '../images/sprites/IronMan3.png';
   ironManPunch.src = '../images/sprites/IronAttack.png';
+  ironHeal.src = '../images/sprites/heal.png';
   const that = this;
 
   function clear() {
@@ -19,9 +21,9 @@ function CanvasDrawer(canvas) {
   }
 
   function loadEnemy(name) {
-    const randomNum = Math.round(0.5 + Math.random() * 3);
+    const randomNum = () => Math.round(0.5 + Math.random() * 3);
     images[name] = new Image();
-    images[name].src = `../images/${name}/${name}${randomNum}.png`;
+    images[name].src = `../images/${name}/${name}${randomNum()}.png`;
   }
 
   loadEnemy('head');
@@ -71,6 +73,9 @@ function CanvasDrawer(canvas) {
 
   function attackEnd() {
     if (curSprite === ironManPunch && xCoordinate === lastSpritePos) {
+      setTimeout(() => {
+        start();
+      }, 0);
       ctx.drawImage(ironManPunch, 0, 0, 100, 120, 350, 100, 120);
     }
   }
@@ -90,10 +95,31 @@ function CanvasDrawer(canvas) {
     start();
   }
 
+  function healEnd() {
+    if (xCoordinate >= 706) {
+      xCoordinate = 0;
+      start();
+      throw new Error('hello world');
+    }
+  }
+
+  this.ironHeal = function () {
+    if (tickCount > 4) {
+      clear();
+      drawEnemy(700, 385);
+      xCoordinate = (xCoordinate >= 706 ? 0 : xCoordinate + 118);
+      ctx.drawImage(ironHeal, xCoordinate, 0, 118, 91, dx, 375, 118, 91);
+      tickCount = 0;
+      healEnd();
+    }
+    tickCount += 1;
+    requestAnimationFrame(that.ironHeal);
+  }
+
   ironManPunch.onload = function() {
     setTimeout(() => {
       start();
-    }, 15);
+    }, 100);
   };
 }
 

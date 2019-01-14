@@ -7,6 +7,7 @@ class App extends Component {
     super(props);
     this.state = {
       gameState: 'main',
+      playerName: '',
     };
   }
 
@@ -14,12 +15,18 @@ class App extends Component {
     this.setState({ gameState: nextGameState });
   }
 
+  setPlayerName = (playerName) => {
+    this.setState({ playerName });
+  }
+
   render() {
-    const { gameState } = this.state;
+    const { gameState, playerName } = this.state;
     return (
       <MainView
+        playerName={playerName}
         gameState={gameState}
         changeGameState={this.changeGameState}
+        setPlayerName={this.setPlayerName}
       />
 
     );
