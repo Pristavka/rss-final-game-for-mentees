@@ -42,6 +42,7 @@ class Battle extends Component {
   }
 
   healPlayer = () => {
+    this.drawer.ironHeal();
     this.setState(({ player }) => {
       let newHealth = player.health + 10;
       newHealth = newHealth > 100 ? 100 : newHealth;
