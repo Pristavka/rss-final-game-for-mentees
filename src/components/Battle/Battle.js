@@ -24,7 +24,14 @@ class Battle extends Component {
   componentDidMount() {
     this.drawer = new CanvasDrawer(this.refs.canvas);
     const monsterName = this.nameGenerator();
-    this.setState(({ monster }) => ({ monster: { ...monster, name: monsterName } }));
+    const { playerName } = this.props;
+    console.log(playerName);
+    this.setState(({ player, monster }) => (
+      {
+        monster: { ...monster, name: monsterName },
+        player: { ...player, name: playerName },
+      }
+    ));
   }
 
   nameGenerator = () => {
