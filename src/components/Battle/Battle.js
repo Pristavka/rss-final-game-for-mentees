@@ -132,7 +132,7 @@ class Battle extends Component {
           {`
           .battle {
             margin: -8px;
-            height: 648px;
+            height: 628px;
             padding-top: 30px;
             background-image: linear-gradient(#665B7D, #665B7D, #A78FA9, #250D1A, #000000, #000000, #000000, #000000, #000000);
           }
