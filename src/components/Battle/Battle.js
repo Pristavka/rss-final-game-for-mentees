@@ -131,8 +131,11 @@ class Battle extends Component {
         <style jsx>
           {`
           .battle {
-            margin: -8px;
-            height: 648px;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left:0;
+            right:0;
             background-image: linear-gradient(#665B7D, #665B7D, #A78FA9, #250D1A, #000000, #000000, #000000, #000000, #000000);
           }
           button {
