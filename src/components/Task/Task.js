@@ -8,11 +8,11 @@ class Task extends Component {
       <p>{task.q}</p>
       {this.renderAnswers(task.a, rest)}
       <style jsx>
-          {`
+        {`
           p {
             text-align: center;
             color: #9ad9ea;
-            font-size: 20pt;
+            font-size: 14pt;
           }
           `}
       </style>
@@ -31,7 +31,7 @@ class Task extends Component {
         </button>
       ))}
       <style jsx>
-          {`
+        {`
           button {
             padding: 0;
             border: none;
@@ -80,7 +80,7 @@ class Task extends Component {
     setTimeout(() => {
       hitPlayer();
       toggleChoosingSpell();
-    }, 1000);
+    }, 2000);
   }
 
   render() {
@@ -101,6 +101,9 @@ class Task extends Component {
             padding-top: 30px;
             padding-left: 12px;
             box-sizing: border-box;
+            -webkit-box-shadow: 5px 5px 10px 0px rgba(186,147,168,1);
+            -moz-box-shadow: 5px 5px 10px 0px rgba(186,147,168,1);
+            box-shadow: 5px 5px 10px 0px rgba(186,147,168,1), -5px -5px 10px 0px rgba(186,147,168,1);
             border-radius: 50%;
             background-size: cover;
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -110,7 +113,7 @@ class Task extends Component {
             }
             p {
               text-align: center;
-              color: #ff8081;
+              color: #9ad9ea;
             }
           `}
         </style>

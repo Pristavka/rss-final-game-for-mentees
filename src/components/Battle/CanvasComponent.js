@@ -8,7 +8,7 @@ class CanvasComponent extends Component {
 
   render() {
     return (
-      <div>
+      <div className="canvas">
         <canvas ref="canvas" width={1200} height={580} />
       </div>
     );

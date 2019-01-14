@@ -31,9 +31,60 @@ class Rating extends Component {
 
     if (loading) {
       return (
-        <div>
+        <div className="wrapper">
+        <div className="rating">
           <h2>Rating</h2>
-          <p>Loading...</p>
+          <div id="wrapper"><div id="test">Loading...</div></div>
+        </div>
+        <style jsx>
+          {`.wrapper {
+            height: 648px;
+            background: url(images/right_bg.jpg) no-repeat;
+            background-size: cover;
+            margin: -8px;
+            box-sizing: border-box;
+            padding-top: 110px;
+          }
+           .rating {
+            width: 800px;
+            height: 450px;
+            margin: 0px auto;
+            padding: 10px 50px ;
+            box-sizing: border-box;
+            border-radius: 10px;
+            background: linear-gradient(to top, rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url(images/rat.jpg) no-repeat;
+            background-size: cover;
+
+            color: #9ad9ea;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            letter-spacing: 1pt;
+            font-size: 20pt;
+           }
+
+           @keyframes test{
+            0%{width: 0%;}
+            100%{width: 100%;}
+          }
+          #wrapper{
+            margin: 0px auto;
+            width: 50%;
+            height: 40px;
+            border: 2px solid rgb(186,147,168);
+            border-radius: 4px;
+          }
+          #test{
+            background: rgb(186,147,168);
+            border-radius: 4px;
+            width: 0%;
+            height: 40px;
+            line-height: 40px;
+            padding-left: 10px;
+            box-sizing: border-box;
+            -webkit-animation:test 3s linear 1 forwards;
+            animation:test 3s linear 1 forwards;
+          }
+          `}
+          </style>
         </div>
       );
     }
@@ -41,30 +92,39 @@ class Rating extends Component {
     const usersTable = users.map(user => (
       <p key={user._id}>
         <span>{user.name}</span>
-         :
-        <span>{user.monstersCount}</span>
+
+        <span style={{float: "right"}}>{user.monstersCount}</span>
       </p>
     ));
 
     const retryButton = <button type="submit" onClick={this.fetchData}>Retry</button>
 
     return (
-      <div>
+      <div className="wrapper">
         <div className="rating">
           <h2>Rating</h2>
           {serverIsDown ? retryButton : usersTable}
         </div>
         <button type="submit" onClick={backToOptions}>Back</button>
         <style jsx>
-          {`.rating {
+          {`.wrapper {
+            height: 648px;
+            background: url(images/right_bg.jpg) no-repeat;
+            background-size: cover;
+            margin: -8px;
+            box-sizing: border-box;
+            padding-top: 110px;
+          }
+           .rating {
             width: 800px;
             height: 450px;
-            margin: 120px auto 0px;
-            padding: 10px 40px ;
+            margin: 0px auto;
+            padding: 10px 50px ;
             box-sizing: border-box;
             border-radius: 10px;
-            background: linear-gradient(to top, rgba(255,255,255,0.1), rgba(255,255,255,0.1)), url(images/rat.jpg) no-repeat;
+            background: linear-gradient(to top, rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url(images/rat.jpg) no-repeat;
             background-size: cover;
+
             color: #9ad9ea;
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             letter-spacing: 1pt;
@@ -80,7 +140,7 @@ class Rating extends Component {
           }
           button {
             position: absolute;
-            top: 30px;
+            top: 50px;
             left: 20px;
             display: inline-block;
             text-align: center;
@@ -88,7 +148,7 @@ class Rating extends Component {
             border: solid 2px #fff;
             border-radius: 4px;
             padding: 0.5em 1em;
-            color: #9ad9ea;
+            color: /*#9ad9ea*/ rgb(186,147,168);
             background: url(images/cover.jpg) no-repeat;
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             letter-spacing: 1pt;
