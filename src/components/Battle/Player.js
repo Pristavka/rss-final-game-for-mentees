@@ -8,16 +8,14 @@ const Player = ({ player }) => (
       {`.player {
         position: fixed;
         top: 20px;
-        left: 50px;
+        left: 450px;
         width: 30%;
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         letter-spacing: 1pt;
         font-size: 22pt;
-        color: #ff8081;
-        /*background:url(images/cover.jpg) no-repeat center/cover;
-        -webkit-background-clip:text;
-        -webkit-text-fill-color: transparent;*/
-        }`}
+        color: #000000;
+        }
+        `}
     </style>
   </div>
 );

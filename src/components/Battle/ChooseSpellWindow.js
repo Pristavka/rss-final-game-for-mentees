@@ -27,7 +27,7 @@ class ChooseSpell extends Component {
 
     const chooseSpell = (
       <div className="choosespell">
-        <p>Выбери<br></br> заклинание</p>
+        <p>Choose your Spell</p>
         <button
           type="submit" className="heal"
           onClick={() => this.setSpell(healPlayer)}
@@ -43,8 +43,9 @@ class ChooseSpell extends Component {
         <style jsx>
           {`.choosespell {
             position: absolute;
-            top: 70px;
-            left: 480px;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
             width: 400px;
             height: 400px;
             padding-top: 40px;
@@ -53,7 +54,6 @@ class ChooseSpell extends Component {
             -moz-box-shadow: 5px 5px 10px 0px rgba(186,147,168,1);
             box-shadow: 5px 5px 10px 0px rgba(186,147,168,1), -5px -5px 10px 0px rgba(186,147,168,1);
             border-radius: 50%;
-            background: /*linear-gradient(to top, rgba(150,0,100,0.3), rgba(150,0,100,0.3)),*/ url(images/cover.jpg) no-repeat;
             background-size: cover;
             color: #9ad9ea ;
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;

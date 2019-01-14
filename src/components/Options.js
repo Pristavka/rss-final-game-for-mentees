@@ -76,7 +76,7 @@ const Options = ({ startBattle, showRating }) => (
       }
       h1 {
         position: absolute;
-        top: 29%;
+        top: 22%;
         left: 15%;
         color: /*#fe8081*/ #ff8081;
         font-family: 'Impact', 'Arial Narrow Bold', sans-serif;

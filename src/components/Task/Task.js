@@ -8,7 +8,7 @@ class Task extends Component {
       <p>{task.q}</p>
       {this.renderAnswers(task.a, rest)}
       <style jsx>
-          {`
+        {`
           p {
             text-align: center;
             color: #9ad9ea;
@@ -31,7 +31,7 @@ class Task extends Component {
         </button>
       ))}
       <style jsx>
-          {`
+        {`
           button {
             padding: 0;
             border: none;
@@ -92,8 +92,9 @@ class Task extends Component {
         <style jsx>
           {`.task {
             position: absolute;
-            top: -80px;
-            left: 480px;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
             width: 400px;
             height: 400px;
             margin: 150px auto 0px;
@@ -104,7 +105,6 @@ class Task extends Component {
             -moz-box-shadow: 5px 5px 10px 0px rgba(186,147,168,1);
             box-shadow: 5px 5px 10px 0px rgba(186,147,168,1), -5px -5px 10px 0px rgba(186,147,168,1);
             border-radius: 50%;
-            background: url(images/cover.jpg) no-repeat;
             background-size: cover;
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             letter-spacing: 1pt;
