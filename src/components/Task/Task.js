@@ -8,11 +8,11 @@ class Task extends Component {
       <p>{task.q}</p>
       {this.renderAnswers(task.a, rest)}
       <style jsx>
-          {`
+        {`
           p {
             text-align: center;
             color: #9ad9ea;
-            font-size: 20pt;
+            font-size: 14pt;
           }
           `}
       </style>
@@ -31,7 +31,7 @@ class Task extends Component {
         </button>
       ))}
       <style jsx>
-          {`
+        {`
           button {
             padding: 0;
             border: none;
@@ -80,7 +80,7 @@ class Task extends Component {
     setTimeout(() => {
       hitPlayer();
       toggleChoosingSpell();
-    }, 1000);
+    }, 2000);
   }
 
   render() {
@@ -91,15 +91,22 @@ class Task extends Component {
         {this.renderTask(tasks[0], rest)}
         <style jsx>
           {`.task {
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
             width: 400px;
             height: 400px;
             margin: 150px auto 0px;
             padding-top: 30px;
             padding-left: 12px;
             box-sizing: border-box;
+            -webkit-box-shadow: 5px 5px 10px 0px rgba(186,147,168,1);
+            -moz-box-shadow: 5px 5px 10px 0px rgba(186,147,168,1);
+            box-shadow: 5px 5px 10px 0px rgba(186,147,168,1), -5px -5px 10px 0px rgba(186,147,168,1);
             border-radius: 50%;
-            background: url(images/cover.jpg) no-repeat;
             background-size: cover;
+            background: linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0.4));
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             letter-spacing: 1pt;
             font-size: 28pt;
@@ -107,7 +114,7 @@ class Task extends Component {
             }
             p {
               text-align: center;
-              color: #ff8081;
+              color: #9ad9ea;
             }
           `}
         </style>

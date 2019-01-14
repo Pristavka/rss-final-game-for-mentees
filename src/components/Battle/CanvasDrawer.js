@@ -76,7 +76,7 @@ function CanvasDrawer(canvas) {
       setTimeout(() => {
         start();
       }, 0);
-      ctx.drawImage(ironManPunch, 0, 0, 100, 120, 350, 100, 120);
+      throw new Error('kostyl.js');
     }
   }
 
@@ -99,7 +99,7 @@ function CanvasDrawer(canvas) {
     if (xCoordinate >= 706) {
       xCoordinate = 0;
       start();
-      throw new Error('hello world');
+      throw new Error('kostyl.js');
     }
   }
 

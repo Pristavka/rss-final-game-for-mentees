@@ -136,7 +136,13 @@ class Battle extends Component {
         {monsterDefeatedWindow}
         <button type="submit" onClick={showRating}>End Game</button>
         <style jsx>
-          {`button {
+          {`
+          .battle {
+            margin: -8px;
+            height: 648px;
+            background-image: linear-gradient(#665B7D, #665B7D, #A78FA9, #250D1A, #000000, #000000, #000000, #000000, #000000);
+          }
+          button {
             padding: 0;
             border: none;
             font: inherit;
@@ -145,16 +151,15 @@ class Battle extends Component {
           }
           button {
             position: fixed;
-            bottom: 10%;
-            left: 40px;
+            bottom: 13%;
+            left: 105px;
             display: inline-block;
             text-align: center;
             text-decoration: none;
             border: solid 2px #fff;
             border-radius: 4px;
             padding: 0.5em 1em;
-            color: #ff8081;
-            background: url(images/cover.jpg) no-repeat;
+            color: /*rgb(186,147,168)*/ plum;
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             letter-spacing: 1pt;
             font-size: 18pt;

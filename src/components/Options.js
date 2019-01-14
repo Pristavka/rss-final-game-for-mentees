@@ -53,20 +53,18 @@ class Options extends Component {
         <footer>
           <nav>
             <p>created by</p>
-            <a href=""><img src="images/git.png" alt="logo"/></a>
-            <a href=""><img src="images/git.png" alt="logo"/></a>
-            <a href=""><img src="images/git.png" alt="logo"/></a>
+            <a href="https://github.com/dzhudzhi" target="blank"><img src="images/git.png" alt="logo"/></a>
+            <a href="https://github.com/jamadamur" target="blank"><img src="images/git.png" alt="logo"/></a>
+            <a href="https://github.com/NataliaSirotko" target="blank"><img src="images/git.png" alt="logo"/></a>
           </nav>
         </footer>
         <style jsx>
           {`
-
-        .options {
-          background: url(images/right_bg.jpg) no-repeat;
-          background-size: cover;
-          margin: -8px;
+          .options {
+            background: url(images/right_bg.jpg) no-repeat;
+            background-size: cover;
+            margin: -8px;
           }
-
           header nav {
             float: right;
             width: 465px;
@@ -75,7 +73,6 @@ class Options extends Component {
             justify-content: space-between;*/
           }
           header nav a {
-
             margin: 0px 0px 10px 10px;
             display: inline-block;
             text-align: center;
@@ -90,18 +87,18 @@ class Options extends Component {
             letter-spacing: 2pt;
           }
           nav .rating {
-            float: right;
+          float: right;
           }
           header nav a:active, header nav button:active {
             transform: translateY(2px);
-                }
+              }
           header nav a:hover, header nav button:hover {
             color: black;
             background-color: white;
           }
           h1 {
             position: absolute;
-            top: 29%;
+            top: 22%;
             left: 15%;
             color: /*#fe8081*/ #ff8081;
             font-family: 'Impact', 'Arial Narrow Bold', sans-serif;
@@ -112,7 +109,7 @@ class Options extends Component {
           span {
             color: #9ad9ea;
           }
-            /*сброс стилей*/
+          /*сброс стилей*/
           button {
             padding: 0;
             border: none;
@@ -149,6 +146,22 @@ class Options extends Component {
           #about p {
             text-align: center;
           }
+          #about div {
+            width: 500px;
+            margin: 80px auto 0px;
+            color: #fff;
+            font-family: 'Impact', 'Arial Narrow Bold', sans-serif;
+            letter-spacing: 2pt;
+            font-size: 16pt;
+            font-style: italic;
+          }
+          #about div p {
+            line-height: 26pt;
+          }
+          #about span {
+            color: black;
+            font-size: 20pt;
+          }
           #about a {
             color: #9ad9ea;
             font-family: 'Impact', 'Arial Narrow Bold', sans-serif;
@@ -162,7 +175,7 @@ class Options extends Component {
 
           .choose-name p {
             text-align: center;
-            margin: 150px auto 70px;
+            margin: 110px auto 70px;
             color: #ff8081;
             font-family: 'Impact', 'Arial Narrow Bold', sans-serif;
             letter-spacing: 3pt;
@@ -236,14 +249,14 @@ class Options extends Component {
             letter-spacing: 1pt;
             font-size: 18pt;
           }
-          button:active {
-            transform: translateY(2px);
+            button:active {
+              transform: translateY(2px);
           }
-          button:hover {
-            color: black;
-            background-color: white;
+            button:hover {
+              color: black;
+              background-color: white;
           }*/
-          `}
+        `}
         </style>
       </div>
     );

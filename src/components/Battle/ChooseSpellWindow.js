@@ -27,7 +27,7 @@ class ChooseSpell extends Component {
 
     const chooseSpell = (
       <div className="choosespell">
-        <p>Выбери<br></br> заклинание</p>
+        <p>Choose your Spell</p>
         <button
           type="submit" className="heal"
           onClick={() => this.setSpell(healPlayer)}
@@ -42,16 +42,21 @@ class ChooseSpell extends Component {
         </button>
         <style jsx>
           {`.choosespell {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
             width: 400px;
             height: 400px;
-            margin: 150px auto 0px;
             padding-top: 40px;
-            /*padding-left: 30px;*/
             box-sizing: border-box;
+            -webkit-box-shadow: 5px 5px 10px 0px rgba(186,147,168,1);
+            -moz-box-shadow: 5px 5px 10px 0px rgba(186,147,168,1);
+            box-shadow: 5px 5px 10px 0px rgba(186,147,168,1), -5px -5px 10px 0px rgba(186,147,168,1);
             border-radius: 50%;
-            background: url(images/cover.jpg) no-repeat;
             background-size: cover;
-            color: #9ad9ea;
+            color: #9ad9ea ;
+            background: linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0.4));
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             letter-spacing: 1pt;
             font-size: 28pt;
