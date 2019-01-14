@@ -3,16 +3,21 @@ import React from 'react';
 import Options from './Options';
 import Battle from './Battle/Battle';
 import Rating from './Rating';
-import CanvasComponent from './Battle/CanvasComponent';
 
 const MainView = (props) => {
-  const { gameState, changeGameState } = props;
-  const battleComponent = <Battle showRating={() => changeGameState('rating')} />;
+  const {
+    gameState,
+    changeGameState,
+    playerName,
+    setPlayerName,
+  } = props;
+  const battleComponent = <Battle playerName={playerName} showRating={() => changeGameState('rating')} />;
   const ratingComponent = <Rating backToOptions={() => changeGameState('main')} />;
   const optionsComponent = (
     <Options
       startBattle={() => changeGameState('battle')}
       showRating={() => changeGameState('rating')}
+      setPlayerName={setPlayerName}
     />
   );
 

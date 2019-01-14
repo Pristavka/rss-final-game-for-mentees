@@ -2,7 +2,7 @@ import React from 'react';
 
 const Player = ({ player }) => (
   <div className="player">
-    <p>Player</p>
+    <p>{player.name}</p>
     <p>{player.health}</p>
     <style jsx>
       {`.player {
