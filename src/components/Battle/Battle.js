@@ -71,6 +71,7 @@ class Battle extends Component {
   }
 
   hitPlayer = () => {
+    // this.drawer.hitPlayer();
     this.setState(({ player }) => {
       let newHealth = player.health - 20;
       newHealth = newHealth < 0 ? 0 : newHealth;

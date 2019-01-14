@@ -15,6 +15,12 @@ function CanvasDrawer(canvas) {
   ironManPunch.src = '../images/sprites/IronAttack.png';
   ironHeal.src = '../images/sprites/heal.png';
   const that = this;
+  const fireArm = new Image();
+  const fireHead = new Image();
+  fireArm.src = './img/attack/heavenFire.png';
+  fireHead.src = './img/attack/fireHead.png';
+  let enemyBeamX = 875;
+  let enemyBeamY = -25;
 
   function clear() {
     ctx.clearRect(0, 0, 1200, 580);
@@ -114,6 +120,31 @@ function CanvasDrawer(canvas) {
     }
     tickCount += 1;
     requestAnimationFrame(that.ironHeal);
+  }
+
+  function enemyFire() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawEnemy(700,385);
+    ctx.drawImage(sprite2, 600, 0, spriteWidth, 120, 300, 350, spriteWidth, 120);
+    ctx.drawImage(fireHead, 920, -20);
+    ctx.drawImage(fireArm, enemyBeamX, enemyBeamY);
+    enemyBeamX = (enemyBeamX <=285? 284 : enemyBeamX -= 20);
+    enemyBeamY = (enemyBeamY >= 295 ? 296 : enemyBeamY +=10);
+    fireEnd();
+    requestAnimationFrame(enemyFire)
+  }
+
+  function fireEnd() {
+    if (enemyBeamX <= 285) {
+      enemyBeamX = 875;
+      enemyBeamY = -25;
+      start();
+      throw new Error('hello kitty');          
+    }
+  }
+
+  this.hitPlayer = function() {
+    enemyFire()
   }
 
   ironManPunch.onload = function() {
