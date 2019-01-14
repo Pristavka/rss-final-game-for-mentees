@@ -40,7 +40,7 @@ const Options = ({ startBattle, showRating }) => (
     .options {
       background: url(images/right_bg.jpg) no-repeat;
       background-size: cover;
-      margin: -8px;
+     margin: -8px;
       }
       header nav {
         float: right;

@@ -38,10 +38,13 @@ class Rating extends Component {
         </div>
         <style jsx>
           {`.wrapper {
-            height: 658px;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left:0;
+            right:0;
             background: url(images/right_bg.jpg) no-repeat;
             background-size: cover;
-            margin: -8px;
             box-sizing: border-box;
             padding-top: 110px;
           }
@@ -106,10 +109,13 @@ class Rating extends Component {
         <button type="submit" onClick={backToOptions}>Back</button>
         <style jsx>
           {`.wrapper {
-            height: 658px;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left:0;
+            right:0;
             background: url(images/right_bg.jpg) no-repeat;
             background-size: cover;
-            margin: -8px;
             box-sizing: border-box;
             padding-top: 110px;
           }

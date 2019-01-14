@@ -1,4 +1,5 @@
 import React from 'react';
+import CanvasDrawer from './CanvasDrawer';
 
 const MonsterDefeatedWindow = ({ monsterName, endGame, nextMonster }) => (
   <div>
