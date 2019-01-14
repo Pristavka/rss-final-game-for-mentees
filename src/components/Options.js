@@ -14,6 +14,9 @@ const Options = ({ startBattle, showRating }) => (
   </header>
   <section id="about">
   	<p><a href="https://42.tut.by/618552?crnd=6467">смотреть трейлер</a></p>
+    <div>
+      <p>Мы посмотрели трейлер «Мстителей» и не смогли остаться в стороне от судьбы главного героя. Поэтому мы хотим попытаться спасти Тони Старка. Ты тоже можешь это сделать, начни игру прямо сейчас!</p>
+    </div>
   </section>
   <section className="choose-name">
   	<p>Твоё имя, герой</p>
@@ -26,9 +29,9 @@ const Options = ({ startBattle, showRating }) => (
   <footer>
     <nav>
       <p>created by</p>
-      <a href=""><img src="images/git.png" alt="logo"/></a>
-      <a href=""><img src="images/git.png" alt="logo"/></a>
-      <a href=""><img src="images/git.png" alt="logo"/></a>
+      <a href="" target="blank"><img src="images/git.png" alt="logo"/></a>
+      <a href="" target="blank"><img src="images/git.png" alt="logo"/></a>
+      <a href="https://github.com/NataliaSirotko" target="blank"><img src="images/git.png" alt="logo"/></a>
   	</nav>
   </footer>
     <style jsx>
@@ -62,7 +65,7 @@ const Options = ({ startBattle, showRating }) => (
         letter-spacing: 2pt;
       }
       nav .rating {
-float: right;
+      float: right;
       }
       header nav a:active, header nav button:active {
         transform: translateY(2px);
@@ -115,11 +118,17 @@ float: right;
       .button-header {
         border-width: 3px;
         margin: 220px 41% 40px;
+        width:auto;
         font-size: 32pt;
       }
 
       #about p {
         text-align: center;
+      }
+      #about div {
+        width: 400px;
+        margin: 30px auto 0px;
+
       }
       #about a {
         color: #9ad9ea;
