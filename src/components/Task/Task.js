@@ -88,7 +88,7 @@ class Task extends Component {
     return (
       <div className="task">
         <p>Задание</p>
-        {this.renderTask(tasks[0], rest)}
+        {this.renderTask(tasks[Math.round(-0.5 + Math.random() * 121)], rest)}
         <style jsx>
           {`.task {
             position: absolute;
