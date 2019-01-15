@@ -139,8 +139,8 @@ class Battle extends Component {
         <style jsx>
           {`
           .battle {
-            padding-top: 30px;
-           position: fixed;
+            padding-top: 40px;
+            position: fixed;
             top: 0;
             bottom: 0;
             left:0;
@@ -156,7 +156,7 @@ class Battle extends Component {
           }
           button {
             position: fixed;
-            bottom: 12%;
+            bottom: 11%;
             left: 105px;
             display: inline-block;
             text-align: center;

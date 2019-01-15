@@ -32,6 +32,7 @@ class Task extends Component {
       ))}
       <style jsx>
         {`
+
           button {
             padding: 0;
             border: none;
@@ -47,7 +48,7 @@ class Task extends Component {
             border: solid 2px #fff;
             border-radius: 4px;
             padding: 0.5em 1em;
-            margin: 3px;
+            margin: /*10px 0px 0px 3px*/ 2% 2% 0%;
             color: #fff;
             background-color: transparent;
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -92,14 +93,15 @@ class Task extends Component {
         <style jsx>
           {`.task {
             position: absolute;
-            top: -100px;
+            top: -50px;
             left: 50%;
             transform: translateX(-50%);
             width: 400px;
             height: 400px;
             margin: 150px auto 0px;
-            padding-top: 30px;
-            padding-left: 12px;
+           /* padding-top: 30px;
+            padding-left: 30px;*/
+            padding: 30px 50px 0px;
             box-sizing: border-box;
             -webkit-box-shadow: 5px 5px 10px 0px rgba(186,147,168,1);
             -moz-box-shadow: 5px 5px 10px 0px rgba(186,147,168,1);

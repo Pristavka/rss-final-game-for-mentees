@@ -43,7 +43,7 @@ class ChooseSpell extends Component {
         <style jsx>
           {`.choosespell {
             position: absolute;
-            top: 50px;
+            top: 100px;
             left: 50%;
             transform: translateX(-50%);
             width: 400px;

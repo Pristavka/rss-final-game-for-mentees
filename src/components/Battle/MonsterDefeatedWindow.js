@@ -12,7 +12,7 @@ const MonsterDefeatedWindow = ({ monsterName, endGame, nextMonster }) => (
     <style jsx>
           {`.defeated {
             position: absolute;
-            top: 50px;
+            top: 100px;
             left: 50%;
             transform: translateX(-50%);
             width: 400px;
