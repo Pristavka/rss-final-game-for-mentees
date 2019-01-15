@@ -71,6 +71,7 @@ class Battle extends Component {
   }
 
   hitPlayer = () => {
+    this.drawer.hitPlayer();
     this.setState(({ player }) => {
       let newHealth = player.health - 50;
       newHealth = newHealth < 0 ? 0 : newHealth;
@@ -144,6 +145,7 @@ class Battle extends Component {
         <style jsx>
           {`
           .battle {
+            padding-top: 30px;
             position: fixed;
             top: 0;
             bottom: 0;
@@ -160,7 +162,7 @@ class Battle extends Component {
           }
           button {
             position: fixed;
-            bottom: 13%;
+            bottom: 12%;
             left: 105px;
             display: inline-block;
             text-align: center;

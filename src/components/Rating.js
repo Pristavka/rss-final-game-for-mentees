@@ -38,10 +38,13 @@ class Rating extends Component {
         </div>
         <style jsx>
           {`.wrapper {
-            height: 648px;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left:0;
+            right:0;
             background: url(images/right_bg.jpg) no-repeat;
             background-size: cover;
-            margin: -8px;
             box-sizing: border-box;
             padding-top: 110px;
           }
@@ -52,9 +55,7 @@ class Rating extends Component {
             padding: 10px 50px ;
             box-sizing: border-box;
             border-radius: 10px;
-            background: linear-gradient(to top, rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url(images/rat.jpg) no-repeat;
-            background-size: cover;
-
+            background: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5));
             color: #9ad9ea;
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             letter-spacing: 1pt;
@@ -66,7 +67,7 @@ class Rating extends Component {
             100%{width: 100%;}
           }
           #wrapper{
-            margin: 0px auto;
+            margin: 70px auto;
             width: 50%;
             height: 40px;
             border: 2px solid #ba90a6;
@@ -108,10 +109,13 @@ class Rating extends Component {
         <button type="submit" onClick={backToOptions}>Back</button>
         <style jsx>
           {`.wrapper {
-            height: 648px;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left:0;
+            right:0;
             background: url(images/right_bg.jpg) no-repeat;
             background-size: cover;
-            margin: -8px;
             box-sizing: border-box;
             padding-top: 110px;
           }

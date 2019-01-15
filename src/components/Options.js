@@ -9,6 +9,7 @@ class Options extends Component {
     this.setState({ value: e.target.value });
   }
 
+
   handleSubmit = (e, setPlayerName) => {
     e.preventDefault();
     const { value } = this.state;
@@ -34,7 +35,10 @@ class Options extends Component {
             <a href="#screenshot">Скриншоты</a>
             <button type="submit" className="rating" onClick={showRating}>Рейтинг</button>
           </nav>
-          <h1><span>Спасти</span> Тони Старка</h1>
+          <h1>
+            <span>Спасти</span>
+             Тони Старка
+          </h1>
           <button type="submit" onClick={startBattle} className="button-header">Спасти</button>
         </header>
         <section id="about">
@@ -140,6 +144,8 @@ class Options extends Component {
           .button-header {
             border-width: 3px;
             margin: 220px 41% 40px;
+            margin-left: 50%;
+            transform: translate(-50%);
             font-size: 32pt;
           }
 
@@ -251,6 +257,7 @@ class Options extends Component {
           }
             button:active {
               transform: translateY(2px);
+              transform: translateX(-50%);
           }
             button:hover {
               color: black;
