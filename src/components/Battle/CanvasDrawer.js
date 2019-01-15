@@ -161,7 +161,7 @@ function CanvasDrawer(canvas) {
 
   function enemyFire() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawEnemy(700, 385);
+    drawEnemy(660, 385);
     ctx.drawImage(ironManPunch, 600, 0, spriteWidth, 120, 300, 350, spriteWidth, 120);
     ctx.drawImage(fireHead, 920, -20);
     ctx.drawImage(fireArm, enemyBeamX, enemyBeamY);
