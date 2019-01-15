@@ -146,7 +146,7 @@ class Battle extends Component {
           {`
           .battle {
             padding-top: 30px;
-            position: fixed;
+           position: fixed;
             top: 0;
             bottom: 0;
             left:0;

@@ -30,8 +30,7 @@ class Options extends Component {
       <div className="options">
         <header id="play">
           <nav>
-            <button type="submit" onClick={startBattle}>Играть</button>
-            <a href="#about">Идея</a>
+            <a href="#about">Идея игры</a>
             <a href="#screenshot">Скриншоты</a>
             <button type="submit" className="rating" onClick={showRating}>Рейтинг</button>
           </nav>
@@ -43,6 +42,7 @@ class Options extends Component {
         </header>
         <section id="about">
           <p><a href="https://42.tut.by/618552?crnd=6467">смотреть трейлер</a></p>
+          <div><p>Мы посмотрели трейлер "Мстителей" и не смогли остаться в стороне от судьбы главного героя. Поэтому мы решили спасти <span>Тони Старка.</span> Ты тоже можешь поучаствовать в спасении, начни игру прямо сейчас!</p></div>
         </section>
         <section className="choose-name">
           <p>Твоё имя, герой</p>
@@ -71,13 +71,13 @@ class Options extends Component {
           }
           header nav {
             float: right;
-            width: 465px;
+            width: 40%;
             margin: 50px 50px;
-            /*display: flex;
-            justify-content: space-between;*/
+            display: flex;
+            justify-content: space-between;
           }
           header nav a {
-            margin: 0px 0px 10px 10px;
+            /*margin: 0px 0px 10px 10px;*/
             display: inline-block;
             text-align: center;
             border: 2px solid #fff;
@@ -90,9 +90,9 @@ class Options extends Component {
             font-size: 18pt;
             letter-spacing: 2pt;
           }
-          nav .rating {
+          /*nav .rating {
           float: right;
-          }
+          }*/
           header nav a:active, header nav button:active {
             transform: translateY(2px);
               }
@@ -148,6 +148,10 @@ class Options extends Component {
             transform: translate(-50%);
             font-size: 32pt;
           }
+          .button-header:active {
+            padding 0.6em 1.0em;
+            transition: padding .1s;
+          }
 
           #about p {
             text-align: center;
@@ -197,7 +201,14 @@ class Options extends Component {
           }
           .choose-name button {
             padding: 0.8em 1.1em;
+            margin-left: 44px;
+            transform: translate(-50%);
           }
+          .choose-name button:active {
+            padding 0.9em 1.3em;
+            transition: padding .1s;
+          }
+
 
           footer {
             margin-top: 725px;

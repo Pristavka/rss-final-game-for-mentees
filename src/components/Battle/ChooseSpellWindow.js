@@ -54,7 +54,6 @@ class ChooseSpell extends Component {
             -moz-box-shadow: 5px 5px 10px 0px rgba(186,147,168,1);
             box-shadow: 5px 5px 10px 0px rgba(186,147,168,1), -5px -5px 10px 0px rgba(186,147,168,1);
             border-radius: 50%;
-            background-size: cover;
             color: #9ad9ea ;
             background: linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0.4));
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
