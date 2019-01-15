@@ -81,8 +81,8 @@ class Rating extends Component {
             line-height: 40px;
             padding-left: 10px;
             box-sizing: border-box;
-            -webkit-animation:test 3s linear 1 forwards;
-            animation:test 3s linear 1 forwards;
+            -webkit-animation:test 4s linear 1 forwards;
+            animation:test 4s linear 1 forwards;
           }
           `}
           </style>
