@@ -145,7 +145,7 @@ class Options extends Component {
             border-width: 3px;
             margin: 220px 41% 40px;
             margin-left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%);
             font-size: 32pt;
           }
 
@@ -257,6 +257,7 @@ class Options extends Component {
           }
             button:active {
               transform: translateY(2px);
+              transform: translateX(-50%);
           }
             button:hover {
               color: black;
