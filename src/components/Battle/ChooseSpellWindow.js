@@ -84,7 +84,7 @@ class ChooseSpell extends Component {
               letter-spacing: 1pt;
               font-size: 18pt;
             }
-            .heal {
+           .heal {
               margin-left: 75px;
               margin-right: 15px;
             }
