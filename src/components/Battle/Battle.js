@@ -4,6 +4,7 @@ import Player from './Player';
 import Monster from './Monster';
 import ChooseSpellWindow from './ChooseSpellWindow';
 import MonsterDefeatedWindow from './MonsterDefeatedWindow';
+import GameOverWindow from './GameOverWindow';
 import tasksData from '../../data/tasks';
 import CanvasDrawer from './CanvasDrawer';
 
@@ -25,7 +26,6 @@ class Battle extends Component {
     this.drawer = new CanvasDrawer(this.refs.canvas);
     const monsterName = this.nameGenerator();
     const { playerName } = this.props;
-    console.log(playerName);
     this.setState(({ player, monster }) => (
       {
         monster: { ...monster, name: monsterName },
@@ -72,13 +72,9 @@ class Battle extends Component {
 
   hitPlayer = () => {
     this.setState(({ player }) => {
-      let newHealth = player.health - 20;
+      let newHealth = player.health - 50;
       newHealth = newHealth < 0 ? 0 : newHealth;
-      return {
-        player: {
-          health: newHealth,
-        },
-      };
+      return { player: { ...player, health: newHealth } };
     });
   }
 
@@ -113,9 +109,10 @@ class Battle extends Component {
       />
     );
     const monsterDefeated = monster.health === 0;
+    const playerDefeated = player.health === 0;
 
-    chooseSpellWindow = (choosingSpell && !monsterDefeated) ? chooseSpellWindow : null;
-    const gameOver = player.health === 0;
+    const condition = choosingSpell && !(monsterDefeated || playerDefeated);
+    chooseSpellWindow = condition ? chooseSpellWindow : null;
 
     let monsterDefeatedWindow = (
       <MonsterDefeatedWindow
@@ -125,7 +122,15 @@ class Battle extends Component {
       />
     );
 
+    let gameOverWindow = (
+      <GameOverWindow
+        name={player.name}
+        showRating={showRating}
+      />
+    );
+
     monsterDefeatedWindow = monsterDefeated ? monsterDefeatedWindow : null;
+    gameOverWindow = playerDefeated ? gameOverWindow : null;
 
     return (
       <div className="battle">
@@ -134,6 +139,7 @@ class Battle extends Component {
         <canvas ref="canvas" width={1200} height={580} />
         {chooseSpellWindow}
         {monsterDefeatedWindow}
+        {gameOverWindow}
         <button type="submit" onClick={showRating}>End Game</button>
         <style jsx>
           {`
