@@ -6,6 +6,9 @@ function CanvasDrawer(canvas) {
   const ironHeal = new Image();
   const fireArm = new Image();
   const fireHead = new Image();
+  const punchSound = new Audio();
+  const healSound = new Audio();
+  const enemyShotSound = new Audio();
   const images = {};
   let curSprite = ironManPunch;
   let lastSpritePos = 1100;
@@ -23,6 +26,9 @@ function CanvasDrawer(canvas) {
   ironHeal.src = '../images/sprites/heal.png';
   fireArm.src = './images/enemyAttack/heavenFire.png';
   fireHead.src = './images/enemyAttack/fireHead.png';
+  punchSound.src = '../sound/ironPunch.mp3';
+  healSound.src = '../sound/heal.mp3';
+  enemyShotSound.src = '../sound/enemyBeam.mp3';
   const that = this;
 
   function clear() {
@@ -110,6 +116,7 @@ function CanvasDrawer(canvas) {
       setTimeout(() => {
         start();
       }, 0);
+      punchSound.play();
       throw new Error('kostyl.js');
     }
   }
@@ -144,6 +151,7 @@ function CanvasDrawer(canvas) {
       xCoordinate = (xCoordinate >= 706 ? 0 : xCoordinate + 118);
       ctx.drawImage(ironHeal, xCoordinate, 0, 118, 91, dx, 375, 118, 91);
       tickCountIronMan = 0;
+      healSound.play();
       healEnd();
     }
     tickCountIronMan += 1;
@@ -167,6 +175,7 @@ function CanvasDrawer(canvas) {
     ctx.drawImage(fireArm, enemyBeamX, enemyBeamY);
     enemyBeamX = (enemyBeamX <= 285 ? 284 : enemyBeamX -= 20);
     enemyBeamY = (enemyBeamY >= 295 ? 296 : enemyBeamY += 10);
+    enemyShotSound.play();
     fireEnd();
     requestAnimationFrame(enemyFire)
   }
