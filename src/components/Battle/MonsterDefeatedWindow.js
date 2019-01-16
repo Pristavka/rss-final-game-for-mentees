@@ -1,5 +1,5 @@
 import React from 'react';
-import CanvasDrawer from './CanvasDrawer';
+import CanvasComponent from './CanvasComponent';
 
 const MonsterDefeatedWindow = ({ monsterName, endGame, nextMonster }) => (
   <div className="defeated">
