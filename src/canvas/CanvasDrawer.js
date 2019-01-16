@@ -21,14 +21,14 @@ function CanvasDrawer(canvas) {
   let enemyBeamY = -25;
   let breathDir = 1;
   let breathAmt = 0;
-  ironManWalk.src = '../assets/images/sprites/IronMan3.png';
-  ironManPunch.src = '../assets/images/sprites/IronAttack.png';
-  ironHeal.src = '../assets/images/sprites/heal.png';
-  fireArm.src = '../assets/images/enemyAttack/heavenFire.png';
-  fireHead.src = '../assets/images/enemyAttack/fireHead.png';
-  punchSound.src = '../assets/sound/ironPunch.mp3';
-  healSound.src = '../assets/sound/heal.mp3';
-  enemyShotSound.src = '../assets/sound/enemyBeam.mp3';
+  ironManWalk.src = 'assets/images/sprites/IronMan3.png';
+  ironManPunch.src = 'assets/images/sprites/ironAttack.png';
+  ironHeal.src = 'assets/images/sprites/heal.png';
+  fireArm.src = 'assets/images/enemyAttack/heavenFire.png';
+  fireHead.src = 'assets/images/enemyAttack/fireHead.png';
+  punchSound.src = 'assets/sound/ironPunch.mp3';
+  healSound.src = 'assets/sound/heal.mp3';
+  enemyShotSound.src = 'assets/sound/enemyBeam.mp3';
   const that = this;
 
   function clear() {
@@ -38,7 +38,7 @@ function CanvasDrawer(canvas) {
   function loadEnemy(name) {
     const randomNum = () => Math.round(0.5 + Math.random() * 3);
     images[name] = new Image();
-    images[name].src = `../assets/images/${name}/${name}${randomNum()}.png`;
+    images[name].src = `assets/images/${name}/${name}${randomNum()}.png`;
   }
 
   loadEnemy('head');

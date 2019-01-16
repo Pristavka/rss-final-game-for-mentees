@@ -189,7 +189,7 @@ class Battle extends Component {
             margin-top: -20px;
             margin-left: -10px;
             margin: 0 auto;
-            background-image: url('../assets/images/background/bg2.jpg') ;
+            background-image: url('assets/images/background/bg2.jpg') ;
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
