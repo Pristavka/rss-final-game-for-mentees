@@ -76,7 +76,7 @@ class Battle extends Component {
   }
 
   createNewMonster = () => {
-    // this.drawer.startPosition(); вызвать чтобы отрисовать нового монстра и жч на своих местах
+    this.drawer.startPosition();
     const monsterName = this.nameGenerator();
     this.setState(({ player }) => (
       {
