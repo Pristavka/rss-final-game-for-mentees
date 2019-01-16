@@ -90,7 +90,7 @@ class Rating extends Component {
       );
     }
 
-    const usersTable = users.map(user => (
+    const usersTable = users.sort((a, b) => (b.monstersCount - a.monstersCount)).map(user => (
       <p key={user._id}>
         <span>{user.name}</span>
 
