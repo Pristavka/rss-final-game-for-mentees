@@ -1,11 +1,30 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.join(__dirname, './src/dist'),
     filename: 'app.bundle.js',
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: ['babel-loader'],
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {},
+          },
+        ],
+      },
+    ],
   },
 
   plugins: [
@@ -15,6 +34,9 @@ module.exports = {
         to: 'index.html',
       },
     ]),
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+    }),
   ],
 
   devServer: {
