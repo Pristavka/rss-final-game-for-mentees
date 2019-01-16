@@ -103,7 +103,7 @@ class Rating extends Component {
     return (
       <div className="wrapper">
         <div className="rating">
-        <h2>Rating</h2>
+          <h2>Rating</h2>
           {serverIsDown ? retryButton : usersTable}
         </div>
         <button type="submit" onClick={backToOptions}>Back</button>
