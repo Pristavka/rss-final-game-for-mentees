@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import CanvasDrawer from './CanvasDrawer';
+import CanvasDrawer from '../canvas/CanvasDrawer';
 
 class CanvasComponent extends Component {
   componentDidMount() {
     this.drawer = new CanvasDrawer(this.refs.canvas);
-}
+  }
 
   render() {
     return (

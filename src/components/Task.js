@@ -32,7 +32,6 @@ class Task extends Component {
       ))}
       <style jsx>
         {`
-
           button {
             padding: 0;
             border: none;
@@ -62,8 +61,8 @@ class Task extends Component {
             color: black;
             background-color: white;
 
-          `}
-       </style>
+        `}
+      </style>
     </div>
   );
 

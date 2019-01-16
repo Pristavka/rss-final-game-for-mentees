@@ -22,15 +22,19 @@ class Options extends Component {
       startBattle,
       showRating,
       setPlayerName,
+      playerName,
     } = this.props;
 
     const { value } = this.state;
+
+    const nameIsNotSet = playerName === '';
+    const greeting = nameIsNotSet ? <p>Твоё имя, герой?</p> : <p>{`Приветствую, ${playerName}`}</p>;
 
     return (
       <div className="options">
         <header id="play">
           <nav>
-            <button type="submit" className="play" onClick={startBattle}>Играть</button>
+            <button disabled={nameIsNotSet} type="submit" className="play" onClick={startBattle}>Играть</button>
             <a href="#about">Идея игры</a>
             <a href="#screenshot">Скриншоты</a>
             <button type="submit" className="rating" onClick={showRating}>Рейтинг</button>
@@ -39,33 +43,39 @@ class Options extends Component {
             <span>Спасти </span>
               Тони Старка
           </h1>
-          </header>
+        </header>
         <section className="choose">
           <form onSubmit={e => this.handleSubmit(e, setPlayerName)}>
-            <p>Твоё имя, герой</p>
+            {greeting}
             <input type="text" name="" value={value} onChange={this.handleChange} />
-            <button>GO</button>
+            <button type="submit">GO</button>
           </form>
         </section>
         <section id="about">
           <p><a href="https://42.tut.by/618552?crnd=6467">смотреть трейлер</a></p>
-          <div><p>Мы посмотрели трейлер "Мстителей" и не смогли остаться в стороне от судьбы главного героя. Поэтому мы решили спасти <span>Тони Старка.</span> Ты тоже можешь поучаствовать в спасении, начни игру прямо сейчас!</p></div>
+          <div>
+            <p>
+              {'Мы посмотрели трейлер "Мстителей" и не смогли остаться в стороне от судьбы главного героя. Поэтому мы решили спасти '}
+              <span>Тони Старка.</span>
+              {' Ты тоже можешь поучаствовать в спасении, начни игру прямо сейчас!'}
+            </p>
+          </div>
         </section>
-        <section id= "screenshot">
-
+        <section id="screenshot">
+          <p>screenshot</p>
         </section>
         <footer>
-        <nav>
+          <nav>
             <p>created by</p>
-            <a href="https://github.com/dzhudzhi" target="blank"><img src="images/git.png" alt="logo"/></a>
-            <a href="https://github.com/jamadamur" target="blank"><img src="images/git.png" alt="logo"/></a>
-            <a href="https://github.com/NataliaSirotko" target="blank"><img src="images/git.png" alt="logo"/></a>
+            <a href="https://github.com/dzhudzhi" target="blank"><img src="assets/images/git.png" alt="logo" /></a>
+            <a href="https://github.com/jamadamur" target="blank"><img src="assets/images/git.png" alt="logo" /></a>
+            <a href="https://github.com/NataliaSirotko" target="blank"><img src="assets/images/git.png" alt="logo" /></a>
           </nav>
         </footer>
         <style jsx>
           {`
           .options {
-            background: url(images/right_bg.jpg) no-repeat;
+            background: url(assets/images/right_bg.jpg) no-repeat;
             background-size: cover;
             margin: -8px;
           }

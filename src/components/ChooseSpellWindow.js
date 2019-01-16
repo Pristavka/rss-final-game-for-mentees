@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Task from '../Task/Task';
+import Task from './Task';
 
 
 class ChooseSpell extends Component {
@@ -29,7 +29,8 @@ class ChooseSpell extends Component {
       <div className="choosespell">
         <p>Choose your Spell</p>
         <button
-          type="submit" className="heal"
+          type="submit"
+          className="heal"
           onClick={() => this.setSpell(healPlayer)}
         >
           Heal
