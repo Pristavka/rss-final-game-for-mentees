@@ -117,7 +117,7 @@ class Rating extends Component {
             background: url(assets/images/right_bg.jpg) no-repeat;
             background-size: cover;
             box-sizing: border-box;
-            padding-top: 40px;
+            padding-top: 60px;
           }
            .rating {
             width: 1000px;

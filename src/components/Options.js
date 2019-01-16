@@ -63,6 +63,12 @@ class Options extends Component {
         </section>
         <section id="screenshot">
           <p>screenshot</p>
+          <div>
+            <img src="assets/images/screen0.png"/>
+            <img src="assets/images/screen1.png"/>
+            <img src="assets/images/screen2.png"/>
+            <img src="assets/images/screen4.png"/>
+          </div>
         </section>
         <footer>
           <nav>
@@ -74,6 +80,24 @@ class Options extends Component {
         </footer>
         <style jsx>
           {`
+          #screenshot div {
+            width: 75%;
+            margin: 100px auto;
+            padding: 30px;
+            border-radius: 10px;
+            background: linear-gradient(to top, rgba(255,255,255,0.1), rgba(255,255,255,0.1));
+          }
+          #screenshot img {
+            width: 40%;
+            margin: 20px 50px;
+            cursor: crosshair;
+          }
+          #screenshot img:hover {
+            -webkit-transform: scale(0.7);
+            -ms-transform: scale(0.7);
+            transform: scale(1.3);
+
+          }
           .options {
             background: url(assets/images/right_bg.jpg) no-repeat;
             background-size: cover;
@@ -213,7 +237,7 @@ class Options extends Component {
           }
 
           footer {
-            margin-top: 300px/*725px*/;
+            margin-top: 150px/*725px*/;
             height: 165px;
             background: black;
           }
