@@ -28,7 +28,7 @@ class Options extends Component {
     const { value } = this.state;
 
     const nameIsNotSet = playerName === '';
-    const greeting = nameIsNotSet ? <p>Твоё имя, герой?</p> : <p>{`Приветствую, ${playerName}`}</p>;
+    const greeting = nameIsNotSet ? <p style={{color: "#9ad9ea", fontFamily: "'Impact', 'Arial Narrow Bold', sans-serif", letterSpacing: "3pt", fontSize: "28pt"}}>Твоё имя, герой?</p> : <p style={{color: "#9ad9ea", fontFamily: "'Impact', 'Arial Narrow Bold', sans-serif", letterSpacing: "3pt", fontSize: "28pt"}}>{`Приветствую тебя, ${playerName}!`}</p>;
 
     return (
       <div className="options">
@@ -84,21 +84,21 @@ class Options extends Component {
           }
           header nav {
             float: right;
-            width: 53%;
+            width: 760px;
             margin: 50px 30px;
             display: flex;
             justify-content: space-between;
           }
           .play {
-            font-size: 18pt;
-            color: black;
-            background: white;
+            font-size: 20pt;
+            color: white;
           }
           .play:disabled {
+            color: black;
+            background: white;
             cursor: not-allowed;
           }
           header nav a {
-            /*margin: 0px 0px 10px 10px;*/
             display: inline-block;
             text-align: center;
             border: 2px solid #fff;
@@ -109,11 +109,8 @@ class Options extends Component {
             cursor: pointer;
             font-family: 'Impact', 'Arial Narrow Bold', sans-serif;
             font-size: 18pt;
-            letter-spacing: 2pt;
+            letter-spacing: 3pt;
           }
-          /*nav .rating {
-          float: right;
-          }*/
           header nav a:active, header nav button:active {
             transform: translateY(2px);
               }
@@ -162,16 +159,11 @@ class Options extends Component {
             color: black;
             background-color: white;
           }
-
+          .choose {
+            margin-top: 150px;
+          }
           .choose form {
             text-align: center;
-          }
-          .choose p {
-            text-align: center;
-            color: /*#ff8081*/ #9ad9ea;
-            font-family: 'Impact', 'Arial Narrow Bold', sans-serif;
-            letter-spacing: 3pt;
-            font-size: 28pt;
           }
           .choose input {
             padding: 0.3em 1em;

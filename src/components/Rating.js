@@ -103,7 +103,7 @@ class Rating extends Component {
     return (
       <div className="wrapper">
         <div className="rating">
-          <h2>Rating</h2>
+        <h2>Rating</h2>
           {serverIsDown ? retryButton : usersTable}
         </div>
         <button type="submit" onClick={backToOptions}>Back</button>
@@ -117,16 +117,16 @@ class Rating extends Component {
             background: url(assets/images/right_bg.jpg) no-repeat;
             background-size: cover;
             box-sizing: border-box;
-            padding-top: 110px;
+            padding-top: 40px;
           }
            .rating {
-            width: 800px;
-            height: 450px;
+            width: 1000px;
+            height: 600px;
             margin: 0px auto;
             padding: 10px 50px ;
             box-sizing: border-box;
             border-radius: 10px;
-            background: linear-gradient(to top, rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url(images/rat.jpg) no-repeat;
+            background: linear-gradient(to top, rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url(assets/images/rat.jpg) no-repeat;
             background-size: cover;
 
             color: #9ad9ea;
