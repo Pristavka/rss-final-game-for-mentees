@@ -183,7 +183,10 @@ function CanvasDrawer(canvas) {
   }
 
   this.hitPlayer = function () {
-    enemyFire();
+    setTimeout(() => {
+      start();
+      enemyFire();
+    }, 100);
   };
 
   ironManPunch.onload = function () {
