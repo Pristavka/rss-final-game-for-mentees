@@ -135,8 +135,8 @@ export default {
 {
 "q": "Выбери лишнее слово:",
 "a": [
-  {"option": "мыло", "correct": true},
- {"option": "метла", "correct": false},
+  {"option": "мыло", "correct": false},
+ {"option": "метла", "correct": true},
  {"option": "зубная паста", "correct": false},
 {"option": "шампунь", "correct": false}
 ],

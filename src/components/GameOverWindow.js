@@ -16,9 +16,13 @@ class GameOverWindow extends Component {
   }
 
   saveResult = (player, showRating) => {
-    this.tryToSaveResult(player)
-      .then(showRating)
-      .catch(() => this.setState({ errorText: 'Повторите попытку' }));
+    const { monstersCount } = player;
+    if (monstersCount > 0) {
+      this.tryToSaveResult(player)
+        .then(showRating)
+        .catch(() => this.setState({ errorText: 'Повторите попытку' }));
+    }
+    showRating();
   }
 
   render() {

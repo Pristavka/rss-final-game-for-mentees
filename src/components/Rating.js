@@ -90,7 +90,7 @@ class Rating extends Component {
       );
     }
 
-    const usersTable = users.map(user => (
+    const usersTable = users.sort((a, b) => (b.monstersCount - a.monstersCount)).map(user => (
       <p key={user._id}>
         <span>{user.name}</span>
 
@@ -103,7 +103,7 @@ class Rating extends Component {
     return (
       <div className="wrapper">
         <div className="rating">
-        <h2>Rating</h2>
+          <h2>Rating</h2>
           {serverIsDown ? retryButton : usersTable}
         </div>
         <button type="submit" onClick={backToOptions}>Back</button>

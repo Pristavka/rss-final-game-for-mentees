@@ -51,7 +51,7 @@ class Battle extends Component {
   healPlayer = () => {
     this.drawer.ironHeal();
     this.setState(({ player }) => {
-      let newHealth = player.health + 10;
+      let newHealth = player.health + 40;
       newHealth = newHealth > 100 ? 100 : newHealth;
       return { player: { ...player, health: newHealth } };
     });
@@ -69,20 +69,21 @@ class Battle extends Component {
   hitPlayer = () => {
     this.drawer.hitPlayer();
     this.setState(({ player }) => {
-      let newHealth = player.health - 50;
+      let newHealth = player.health - 30;
       newHealth = newHealth < 0 ? 0 : newHealth;
       return { player: { ...player, health: newHealth } };
     });
   }
 
   createNewMonster = () => {
+    this.drawer.startPosition();
     const monsterName = this.nameGenerator();
-    this.setState(({ prevPlayer }) => (
+    this.setState(({ player }) => (
       {
         player: {
-          ...prevPlayer,
+          ...player,
           health: 100,
-          monstersCount: prevPlayer.monstersCount + 1,
+          monstersCount: player.monstersCount + 1,
         },
         monster: {
           name: monsterName,
