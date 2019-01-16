@@ -22,59 +22,80 @@ class Options extends Component {
       startBattle,
       showRating,
       setPlayerName,
+      playerName,
     } = this.props;
 
     const { value } = this.state;
+
+    const nameIsNotSet = playerName === '';
+    const greeting = nameIsNotSet ? <p>Твоё имя, герой?</p> : <p>{`Приветствую, ${playerName}`}</p>;
 
     return (
       <div className="options">
         <header id="play">
           <nav>
+            <button disabled={nameIsNotSet} type="submit" className="play" onClick={startBattle}>Играть</button>
             <a href="#about">Идея игры</a>
             <a href="#screenshot">Скриншоты</a>
             <button type="submit" className="rating" onClick={showRating}>Рейтинг</button>
           </nav>
           <h1>
-            <span>Спасти</span>
-             Тони Старка
+            <span>Спасти </span>
+              Тони Старка
           </h1>
-          <button type="submit" onClick={startBattle} className="button-header">Спасти</button>
         </header>
-        <section id="about">
-          <p><a href="https://42.tut.by/618552?crnd=6467">смотреть трейлер</a></p>
-          <div><p>Мы посмотрели трейлер "Мстителей" и не смогли остаться в стороне от судьбы главного героя. Поэтому мы решили спасти <span>Тони Старка.</span> Ты тоже можешь поучаствовать в спасении, начни игру прямо сейчас!</p></div>
-        </section>
-        <section className="choose-name">
-          <p>Твоё имя, герой</p>
+        <section className="choose">
           <form onSubmit={e => this.handleSubmit(e, setPlayerName)}>
+            {greeting}
             <input type="text" name="" value={value} onChange={this.handleChange} />
-            <button>GO</button>
+            <button type="submit">GO</button>
           </form>
         </section>
-        <section id= "screenshot">
-
+        <section id="about">
+          <p><a href="https://42.tut.by/618552?crnd=6467">смотреть трейлер</a></p>
+          <div>
+            <p>
+              {'Мы посмотрели трейлер "Мстителей" и не смогли остаться в стороне от судьбы главного героя. Поэтому мы решили спасти '}
+              <span>Тони Старка.</span>
+              {' Ты тоже можешь поучаствовать в спасении, начни игру прямо сейчас!'}
+            </p>
+          </div>
+        </section>
+        <section id="screenshot">
+          <p>screenshot</p>
         </section>
         <footer>
           <nav>
             <p>created by</p>
-            <a href="https://github.com/dzhudzhi" target="blank"><img src="images/git.png" alt="logo"/></a>
-            <a href="https://github.com/jamadamur" target="blank"><img src="images/git.png" alt="logo"/></a>
-            <a href="https://github.com/NataliaSirotko" target="blank"><img src="images/git.png" alt="logo"/></a>
+            <a href="https://github.com/dzhudzhi" target="blank"><img src="assets/images/git.png" alt="logo" /></a>
+            <a href="https://github.com/jamadamur" target="blank"><img src="assets/images/git.png" alt="logo" /></a>
+            <a href="https://github.com/NataliaSirotko" target="blank"><img src="assets/images/git.png" alt="logo" /></a>
           </nav>
         </footer>
         <style jsx>
           {`
           .options {
-            background: url(images/right_bg.jpg) no-repeat;
+            background: url(assets/images/right_bg.jpg) no-repeat;
             background-size: cover;
             margin: -8px;
           }
+          header {
+            height: 380px;
+          }
           header nav {
             float: right;
-            width: 40%;
-            margin: 50px 50px;
+            width: 53%;
+            margin: 50px 30px;
             display: flex;
             justify-content: space-between;
+          }
+          .play {
+            font-size: 18pt;
+            color: black;
+            background: white;
+          }
+          .play:disabled {
+            cursor: not-allowed;
           }
           header nav a {
             /*margin: 0px 0px 10px 10px;*/
@@ -102,7 +123,7 @@ class Options extends Component {
           }
           h1 {
             position: absolute;
-            top: 22%;
+            top: 26%;
             left: 15%;
             color: /*#fe8081*/ #ff8081;
             font-family: 'Impact', 'Arial Narrow Bold', sans-serif;
@@ -141,18 +162,34 @@ class Options extends Component {
             color: black;
             background-color: white;
           }
-          .button-header {
-            border-width: 3px;
-            margin: 220px 41% 40px;
-            margin-left: 50%;
-            transform: translate(-50%);
-            font-size: 32pt;
+
+          .choose form {
+            text-align: center;
           }
-          .button-header:active {
-            padding 0.6em 1.0em;
-            transition: padding .1s;
+          .choose p {
+            text-align: center;
+            color: /*#ff8081*/ #9ad9ea;
+            font-family: 'Impact', 'Arial Narrow Bold', sans-serif;
+            letter-spacing: 3pt;
+            font-size: 28pt;
+          }
+          .choose input {
+            padding: 0.3em 1em;
+            font-size: 16pt;
+          }
+          .choose button {
+            border-width: 3px;
+            font-size: 28pt;
+            /*margin-left: 50%;
+            transform: translate(-50%);*/
+          }
+          .choose button:active {
+            transform: translateY(2px);
           }
 
+          #about {
+            margin-top: 150px;
+          }
           #about p {
             text-align: center;
           }
@@ -169,7 +206,7 @@ class Options extends Component {
             line-height: 26pt;
           }
           #about span {
-            color: black;
+            color: #ff8081;
             font-size: 20pt;
           }
           #about a {
@@ -183,37 +220,10 @@ class Options extends Component {
             color: black;
           }
 
-          .choose-name p {
-            text-align: center;
-            margin: 110px auto 70px;
-            color: #ff8081;
-            font-family: 'Impact', 'Arial Narrow Bold', sans-serif;
-            letter-spacing: 3pt;
-            font-size: 32pt;
-          }
-
-          .choose-name form {
-            text-align: center;
-          }
-          .choose-name input {
-            padding: 0.3em 1em;
-            font-size: 16pt;
-          }
-          .choose-name button {
-            padding: 0.8em 1.1em;
-            margin-left: 44px;
-            transform: translate(-50%);
-          }
-          .choose-name button:active {
-            padding 0.9em 1.3em;
-            transition: padding .1s;
-          }
-
-
           footer {
-            margin-top: 725px;
+            margin-top: 300px/*725px*/;
             height: 165px;
-            margin-bottom: -20px;
+            background: black;
           }
           footer p {
             font-family: 'Impact', 'Arial Narrow Bold', sans-serif;
@@ -236,44 +246,6 @@ class Options extends Component {
           footer a {
             height: 50px;
           }
-
-          /*.options {
-            float: right;
-            width: 33%;
-            margin: 30px 50px;
-            display: flex;
-            justify-content: space-between;
-          }
-          /*сброс стилей*/
-          button {
-            padding: 0;
-            border: none;
-            font: inherit;
-            color: inherit;
-            background-color: transparent;
-            cursor: pointer;
-          }
-          button {
-            display: inline-block;
-            text-align: center;
-            text-decoration: none;
-            border: solid 2px #fff;
-            border-radius: 4px;
-            padding: 0.5em 1em;
-            color: #fff;
-            background-color: transparent;
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-            letter-spacing: 1pt;
-            font-size: 18pt;
-          }
-            button:active {
-              transform: translateY(2px);
-              transform: translateX(-50%);
-          }
-            button:hover {
-              color: black;
-              background-color: white;
-          }*/
         `}
         </style>
       </div>

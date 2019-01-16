@@ -1,18 +1,38 @@
-import React from 'react';
-import CanvasComponent from './CanvasComponent';
+import React, { Component } from 'react';
 
-const MonsterDefeatedWindow = ({ monsterName, endGame, nextMonster }) => (
-  <div className="defeated">
-    <p>
-      {monsterName}
-      <span> побеждён</span>
-    </p>
-    <button className="next" type="submit" onClick={nextMonster}>Next Monster</button>
-    <button type="submit" onClick={endGame}>End Game</button>
-    <style jsx>
-          {`.defeated {
+class GameOverWindow extends Component {
+  state = { errorText: '' }
+
+  tryToSaveResult = async ({ name, monstersCount }) => {
+    const body = JSON.stringify({ name, monstersCount });
+    const res = await fetch('https://rs-game.herokuapp.com/results', {
+      method: 'post',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body,
+    });
+    return res;
+  }
+
+  saveResult = (player, showRating) => {
+    this.tryToSaveResult(player)
+      .then(showRating)
+      .catch(() => this.setState({ errorText: 'Повторите попытку' }));
+  }
+
+  render() {
+    const { errorText } = this.state;
+    const { showRating, player } = this.props;
+    return (
+      <div className="game-over">
+        <p>Игра окончена</p>
+        <button type="submit" onClick={() => this.saveResult(player, showRating)}>Посмотреть рейтинг</button>
+        <p>{errorText}</p>
+        <style jsx>
+          {`.game-over {
             position: absolute;
-            top: 50px;
+            top: 100px;
             left: 50%;
             transform: translateX(-50%);
             width: 400px;
@@ -27,21 +47,17 @@ const MonsterDefeatedWindow = ({ monsterName, endGame, nextMonster }) => (
             background: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5));
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             letter-spacing: 1pt;
-            font-size: 20pt;
+            font-size: 28pt;
             }
             p {
               text-align: center;
-              width: 90%;
-              margin-left: 20px;
             }
-
               button {
                 padding: 0;
                 border: none;
                 font: inherit;
                 color: inherit;
                 background-color: transparent;
-                cursor: pointer;
               }
               button {
                 display: inline-block;
@@ -50,26 +66,29 @@ const MonsterDefeatedWindow = ({ monsterName, endGame, nextMonster }) => (
                 border: solid 2px #fff;
                 border-radius: 4px;
                 padding: 0.5em 1em;
-                margin-top: 30px;
+                margin-top: 10px;
+                margin-left: 50%;
+                transform: translateX(-50%);
+                cursor: pointer;
                 color: #fff;
                 font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
                 letter-spacing: 1pt;
                 font-size: 18pt;
               }
-              .next {
-                margin-left: 20px;
-                margin-right: 10px;
-              }
               button:active {
-                transform: translateY(2px);
+                padding: 0.6em 1.1em;
+                margin-left: 49%;
+                transition: padding 0.1s, margin-left 0.1s;
               }
               button:hover {
                 color: black;
                 background-color: white;
               }
             `}
-            </style>
-  </div>
-);
+        </style>
+      </div>
+    );
+  }
+}
 
-export default MonsterDefeatedWindow;
+export default GameOverWindow;

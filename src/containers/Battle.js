@@ -1,31 +1,31 @@
 import React, { Component } from 'react';
 
-import Player from './Player';
-import Monster from './Monster';
-import ChooseSpellWindow from './ChooseSpellWindow';
-import MonsterDefeatedWindow from './MonsterDefeatedWindow';
-import tasksData from '../../data/tasks';
-import CanvasDrawer from './CanvasDrawer';
+import Player from '../components/Player';
+import Monster from '../components/Monster';
+import ChooseSpellWindow from '../components/ChooseSpellWindow';
+import MonsterDefeatedWindow from '../components/MonsterDefeatedWindow';
+import GameOverWindow from '../components/GameOverWindow';
+import tasksData from '../data/tasks';
+import CanvasDrawer from '../canvas/CanvasDrawer';
 
 class Battle extends Component {
   state = {
     player: {
-      name: 'player',
+      name: '',
       health: 100,
+      monstersCount: 0,
     },
     monster: {
-      name: 'monster',
+      name: '',
       health: 100,
     },
     choosingSpell: true,
-    tasks: [],
   };
 
   componentDidMount() {
     this.drawer = new CanvasDrawer(this.refs.canvas);
     const monsterName = this.nameGenerator();
     const { playerName } = this.props;
-    console.log(playerName);
     this.setState(({ player, monster }) => (
       {
         monster: { ...monster, name: monsterName },
@@ -53,11 +53,7 @@ class Battle extends Component {
     this.setState(({ player }) => {
       let newHealth = player.health + 10;
       newHealth = newHealth > 100 ? 100 : newHealth;
-      return {
-        player: {
-          health: newHealth,
-        },
-      };
+      return { player: { ...player, health: newHealth } };
     });
   }
 
@@ -73,26 +69,27 @@ class Battle extends Component {
   hitPlayer = () => {
     this.drawer.hitPlayer();
     this.setState(({ player }) => {
-      let newHealth = player.health - 20;
+      let newHealth = player.health - 50;
       newHealth = newHealth < 0 ? 0 : newHealth;
-      return {
-        player: {
-          health: newHealth,
-        },
-      };
+      return { player: { ...player, health: newHealth } };
     });
   }
 
   createNewMonster = () => {
     const monsterName = this.nameGenerator();
-    this.setState(
+    this.setState(({ prevPlayer }) => (
       {
+        player: {
+          ...prevPlayer,
+          health: 100,
+          monstersCount: prevPlayer.monstersCount + 1,
+        },
         monster: {
           name: monsterName,
           health: 100,
         },
-      },
-    );
+      }
+    ));
   }
 
   render() {
@@ -114,9 +111,10 @@ class Battle extends Component {
       />
     );
     const monsterDefeated = monster.health === 0;
+    const playerDefeated = player.health === 0;
 
-    chooseSpellWindow = (choosingSpell && !monsterDefeated) ? chooseSpellWindow : null;
-    const gameOver = player.health === 0;
+    const condition = choosingSpell && !(monsterDefeated || playerDefeated);
+    chooseSpellWindow = condition ? chooseSpellWindow : null;
 
     let monsterDefeatedWindow = (
       <MonsterDefeatedWindow
@@ -126,7 +124,15 @@ class Battle extends Component {
       />
     );
 
+    let gameOverWindow = (
+      <GameOverWindow
+        player={player}
+        showRating={showRating}
+      />
+    );
+
     monsterDefeatedWindow = monsterDefeated ? monsterDefeatedWindow : null;
+    gameOverWindow = playerDefeated ? gameOverWindow : null;
 
     return (
       <div className="battle">
@@ -135,12 +141,13 @@ class Battle extends Component {
         <canvas ref="canvas" width={1200} height={580} />
         {chooseSpellWindow}
         {monsterDefeatedWindow}
+        {gameOverWindow}
         <button type="submit" onClick={showRating}>End Game</button>
         <style jsx>
           {`
           .battle {
-            padding-top: 30px;
-           position: fixed;
+            padding-top: 40px;
+            position: fixed;
             top: 0;
             bottom: 0;
             left:0;
@@ -156,7 +163,7 @@ class Battle extends Component {
           }
           button {
             position: fixed;
-            bottom: 12%;
+            bottom: 11%;
             left: 105px;
             display: inline-block;
             text-align: center;
@@ -182,7 +189,7 @@ class Battle extends Component {
             margin-top: -20px;
             margin-left: -10px;
             margin: 0 auto;
-            background-image: url('../images/background/bg2.jpg') ;
+            background-image: url('assets/images/background/bg2.jpg') ;
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;

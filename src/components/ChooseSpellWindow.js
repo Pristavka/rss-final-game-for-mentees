@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Task from '../Task/Task';
+import Task from './Task';
 
 
 class ChooseSpell extends Component {
@@ -29,7 +29,8 @@ class ChooseSpell extends Component {
       <div className="choosespell">
         <p>Choose your Spell</p>
         <button
-          type="submit" className="heal"
+          type="submit"
+          className="heal"
           onClick={() => this.setSpell(healPlayer)}
         >
           Heal
@@ -43,7 +44,7 @@ class ChooseSpell extends Component {
         <style jsx>
           {`.choosespell {
             position: absolute;
-            top: 50px;
+            top: 100px;
             left: 50%;
             transform: translateX(-50%);
             width: 400px;
@@ -84,7 +85,7 @@ class ChooseSpell extends Component {
               letter-spacing: 1pt;
               font-size: 18pt;
             }
-            .heal {
+           .heal {
               margin-left: 75px;
               margin-right: 15px;
             }

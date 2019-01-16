@@ -21,14 +21,14 @@ function CanvasDrawer(canvas) {
   let enemyBeamY = -25;
   let breathDir = 1;
   let breathAmt = 0;
-  ironManWalk.src = '../images/sprites/IronMan3.png';
-  ironManPunch.src = '../images/sprites/IronAttack.png';
-  ironHeal.src = '../images/sprites/heal.png';
-  fireArm.src = './images/enemyAttack/heavenFire.png';
-  fireHead.src = './images/enemyAttack/fireHead.png';
-  punchSound.src = '../sound/ironPunch.mp3';
-  healSound.src = '../sound/heal.mp3';
-  enemyShotSound.src = '../sound/enemyBeam.mp3';
+  ironManWalk.src = 'assets/images/sprites/IronMan3.png';
+  ironManPunch.src = 'assets/images/sprites/ironAttack.png';
+  ironHeal.src = 'assets/images/sprites/heal.png';
+  fireArm.src = 'assets/images/enemyAttack/heavenFire.png';
+  fireHead.src = 'assets/images/enemyAttack/fireHead.png';
+  punchSound.src = 'assets/sound/ironPunch.mp3';
+  healSound.src = 'assets/sound/heal.mp3';
+  enemyShotSound.src = 'assets/sound/enemyBeam.mp3';
   const that = this;
 
   function clear() {
@@ -38,7 +38,7 @@ function CanvasDrawer(canvas) {
   function loadEnemy(name) {
     const randomNum = () => Math.round(0.5 + Math.random() * 3);
     images[name] = new Image();
-    images[name].src = `../images/${name}/${name}${randomNum()}.png`;
+    images[name].src = `assets/images/${name}/${name}${randomNum()}.png`;
   }
 
   loadEnemy('head');
@@ -51,13 +51,13 @@ function CanvasDrawer(canvas) {
 
 
   function drawEnemy(enemyX, enemyY) {
-    ctx.drawImage(images['waist'], enemyX + 120, enemyY - 45);
-    ctx.drawImage(images['rightLeg'], enemyX + 85, enemyY - 35);
-    ctx.drawImage(images['leftLeg'], enemyX + 163, enemyY - 25);
-    ctx.drawImage(images['rightArm'], enemyX + 60, enemyY - 92 + breathAmt);
-    ctx.drawImage(images['torso'], enemyX + 109, enemyY - 75 + breathAmt);
-    ctx.drawImage(images['leftArm'], enemyX + 160, enemyY - 110 + breathAmt);
-    ctx.drawImage(images['head'], enemyX + 85, enemyY - 115 + breathAmt);
+    ctx.drawImage(images.waist, enemyX + 120, enemyY - 45);
+    ctx.drawImage(images.rightLeg, enemyX + 85, enemyY - 35);
+    ctx.drawImage(images.leftLeg, enemyX + 163, enemyY - 25);
+    ctx.drawImage(images.rightArm, enemyX + 60, enemyY - 92 + breathAmt);
+    ctx.drawImage(images.torso, enemyX + 109, enemyY - 75 + breathAmt);
+    ctx.drawImage(images.leftArm, enemyX + 160, enemyY - 110 + breathAmt);
+    ctx.drawImage(images.head, enemyX + 85, enemyY - 115 + breathAmt);
   }
 
   function start() {
@@ -72,12 +72,14 @@ function CanvasDrawer(canvas) {
   }
 
   function updateBreath() {
-    if (breathDir === 1) {  // breath in
+    // breath in
+    if (breathDir === 1) {
       breathAmt -= 0.1;
       if (breathAmt < -1.5) {
         breathDir = -1;
       }
-    } else {  // breath out
+    } else {
+      // breath out
       breathAmt += 0.1;
       if (breathAmt > 1.5) {
         breathDir = 1;
@@ -94,7 +96,7 @@ function CanvasDrawer(canvas) {
     }
     tickCountEnemy += 1;
     requestAnimationFrame(animatedEnemy);
-}
+  }
 
   function walk() {
     clear();
@@ -130,11 +132,11 @@ function CanvasDrawer(canvas) {
     }
     tickCountIronMan += 1;
     requestAnimationFrame(that.ironPunch);
-  }
+  };
 
-  this.startPosition = function() {
+  this.startPosition = function () {
     start();
-  }
+  };
 
   function healEnd() {
     if (xCoordinate >= 706) {
@@ -156,14 +158,14 @@ function CanvasDrawer(canvas) {
     }
     tickCountIronMan += 1;
     requestAnimationFrame(that.ironHeal);
-  }
+  };
 
   function fireEnd() {
     if (enemyBeamX <= 285) {
       enemyBeamX = 875;
       enemyBeamY = -25;
       start();
-      throw new Error('kostyl.js');          
+      throw new Error('kostyl.js');
     }
   }
 
@@ -177,14 +179,14 @@ function CanvasDrawer(canvas) {
     enemyBeamY = (enemyBeamY >= 295 ? 296 : enemyBeamY += 10);
     enemyShotSound.play();
     fireEnd();
-    requestAnimationFrame(enemyFire)
+    requestAnimationFrame(enemyFire);
   }
 
-  this.hitPlayer = function() {
+  this.hitPlayer = function () {
     enemyFire();
-  }
+  };
 
-  ironManPunch.onload = function() {
+  ironManPunch.onload = function () {
     setTimeout(() => {
       start();
       animatedEnemy();

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Options from './Options';
-import Battle from './Battle/Battle';
-import Rating from './Rating';
+import Options from '../components/Options';
+import Battle from './Battle';
+import Rating from '../components/Rating';
 
 const MainView = (props) => {
   const {
@@ -18,6 +18,7 @@ const MainView = (props) => {
       startBattle={() => changeGameState('battle')}
       showRating={() => changeGameState('rating')}
       setPlayerName={setPlayerName}
+      playerName={playerName}
     />
   );
 
